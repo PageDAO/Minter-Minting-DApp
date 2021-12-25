@@ -1,0 +1,35 @@
+.div {
+    text-align: center;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.pageDao {
+    width: 340px;
+    height: 403px;
+    margin-top: 125px;
+    margin-bottom: 91px;
+}
+
+.text {
+    margin: 15px auto 20px;
+    padding: 0 16px;
+    max-width: 843px;
+}
+
+@media (max-width: 768px) {
+
+    .div {
+        &>div:first-child {
+            margin-top: 150px;
+        }
+    }
+
+    .pageDao {
+        width: 216px;
+        height: 257px;
+        margin: 91px 0;
+    }
+}

@@ -1,0 +1,37 @@
+.control-pane #multisection.control-section,
+.control-section #custom-filtering {
+    width: 80%;
+    margin: 0 auto;
+    min-width: 185px;
+}
+
+.e-bigger .control-pane #multisection.control-section,
+.e-bigger .control-section #custom-filtering {
+    width: 100%;
+}
+
+.e-input-group:not(.e-success):not(.e-warning):not(.e-error):not(.e-float-icon-left) {
+    border: none !important;
+}
+
+.e-input-group:not(.e-float-icon-left):not(.e-float-input)::before,
+.e-input-group:not(.e-float-icon-left):not(.e-float-input)::after {
+    background-color: transparent !important;
+}
+
+.e-multi-select-wrapper .e-delim-values,
+.e-input-group.e-control-wrapper {
+    /* styleName: Body 1; */
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.e-input-group .e-input-group-icon,
+.e-input-group.e-control-wrapper .e-input-group-icon {
+    display: none;
+}

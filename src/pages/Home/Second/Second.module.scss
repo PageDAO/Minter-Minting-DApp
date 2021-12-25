@@ -1,0 +1,178 @@
+.div {
+    background-size: contain;
+    min-height: 1290px;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.wallet {
+    width: 480px;
+    height: 190px;
+    border-radius: 8px;
+    background-color: var(--red50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.noMember {
+    background-color: var(--white);
+    box-shadow: 0px 2px 22px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 40px;
+    max-width: 641px;
+    margin-top: 10px;
+
+    & > img {
+        width: 100%;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+}
+
+.divider {
+    height: 24px;
+    width: 1px;
+    background-color: #636363;
+    margin: 0 16px;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: .8);
+    z-index: 9;
+
+    a {
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+.container {
+    position: absolute;
+    width: 400px;
+    padding: 31px 32px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--white);
+    border-radius: 8px;
+}
+
+.modal_divider {
+    height: 24px;
+    width: 1px;
+    background-color: #636363;
+    margin: 0 16px;
+}
+
+.pdf_modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: .8);
+    z-index: 9;
+}
+
+.pdf_container {
+    position: absolute;
+    width: 640px;
+    height: 680px;
+    padding: 40px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--white);
+
+    img {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+    }
+}
+
+.success {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+
+    img {
+         width: 18px;
+         height: 18px;
+         cursor: pointer;
+    }
+}
+
+@media (max-width: 1680px) {
+    .div {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .div {
+        align-items: flex-start;
+    }
+
+    .wallet {
+        width: 90%;
+        height: 254px;
+        margin: 200px auto 0;
+
+        button {
+            width: 100% !important;
+        }
+    }
+
+    .noMember {
+        width: 90%;
+        margin: 120px auto 0;
+        padding: 24px;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .divider {
+        width: 100%;
+        height: 1px;
+        margin: 8px 0;
+    }
+
+    .container {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .pdf_container {
+        position: absolute;
+        width: 90%;
+        height: 500px;
+        padding: 10px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: var(--white);
+    }
+}

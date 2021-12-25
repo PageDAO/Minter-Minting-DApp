@@ -1,0 +1,41 @@
+.div {
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.container {
+    height: 204px;
+    margin: 16px 10px 48px;
+    padding-left: 26px;
+    border-left: 1px solid var(--red50);
+    display: flex;
+    align-items: center;
+}
+
+.img {
+    width: 80px;
+    height: 82.5px;
+    min-height: 82.5px;
+    max-height: 82.5px;
+    border: 1px solid #DBDBDB;
+    border-radius: 8px;
+    text-align: center;
+
+    img {
+        width: 52px;
+        height: 80px;
+    }
+}
+
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 35px 0 16px;
+    height: 64px;
+    margin-top: 25px;
+    border-radius: 8px;
+    background-color: var(--grey10);
+}

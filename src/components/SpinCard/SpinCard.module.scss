@@ -1,0 +1,106 @@
+.div {
+    display: flex;
+    margin: 3px 0;
+    
+    &>img {
+        margin: 0 4px;
+    }
+}
+
+.center {
+    background: var(--grey);
+    width: 393px;
+    height: 88px;
+    border: 1px solid #EAEAEA;
+
+    display: flex;
+    justify-content: space-between;
+    padding: 18px;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    h5 {
+        //styleName: H5;
+        font-family: Arvo;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 28px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+    p {
+        //styleName: Body 1;
+        font-family: Roboto;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: var(--green);
+    }
+}
+
+.dateTime {
+    display: flex;
+
+    div {
+        margin-left: 8px;
+    }
+}
+
+.spin {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 104px;
+    height: 48px;
+    padding: 17px 13px;
+
+    span {
+        font-size: 14px;
+        line-height: 25px;
+        font-weight: bold;
+    }
+
+    div {
+        //styleName: Mobile app/caption1;
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 25px;
+        letter-spacing: 0px;
+        text-align: left;
+    }
+}
+
+@media (max-width: 768px) {
+    .div {
+        justify-content: center;
+    }
+
+    .center {
+        display: block;
+        height: 148px;
+        width: 291px;
+        padding: 18px 13px;
+    }
+
+    .dateTime {
+
+        div {
+            margin-left: 0;
+        }
+    }
+
+    .spin {
+        width: 100px;
+    }
+}

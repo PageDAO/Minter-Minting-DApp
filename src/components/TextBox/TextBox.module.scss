@@ -1,0 +1,53 @@
+.div {
+
+    h2 {
+        //styleName: H2;
+        font-family: Arvo;
+        font-size: 72px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 80px;
+        letter-spacing: 0px;
+        text-align: left;
+    }
+
+    p {
+        //styleName: Body 1;
+        font-family: Roboto;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: left;
+        margin-top: 24px;
+    }
+
+    h5 {
+        //styleName: H5;
+        font-family: Arvo;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 28px;
+        letter-spacing: 0em;
+        text-align: left;
+        margin-top: 24px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .div {
+
+        h2 {
+            font-family: Arvo;
+            font-size: 48px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 50px;
+            letter-spacing: 0px;
+            text-align: left;
+        }
+    }
+}

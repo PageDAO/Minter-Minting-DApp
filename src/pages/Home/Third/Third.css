@@ -1,0 +1,53 @@
+.alice-carousel__wrapper {
+    text-align: center;
+    width: 345px;
+}
+
+.alice-carousel__prev-btn,
+.alice-carousel__next-btn {
+    width: auto;
+    position: absolute;
+    width: 48px;
+    height: 48px;
+}
+
+.alice-carousel__next-btn {
+    top: 40%;
+    left: 100%;
+}
+
+.alice-carousel__prev-btn {
+    top: 40%;
+    left: -19%;
+}
+
+.alice-carousel__prev-btn [data-area]::after {
+    content: url('../../../assets/arrow-prev.png');
+}
+
+.alice-carousel__next-btn [data-area]::after {
+    content: url('../../../assets/arrow-next.png');
+}
+
+@media (max-width: 768px) {
+    .alice-carousel__wrapper {
+        width: 300px;
+    }
+
+    .alice-carousel__wrapper img {
+        max-width: 280px;
+        height: 370px;
+        margin-top: 50px;
+        margin-bottom: 20px;
+    }
+
+    .alice-carousel__next-btn {
+        top: auto;
+        left: 53%;
+    }
+
+    .alice-carousel__prev-btn {
+        top: auto;
+        left: 27%;
+    }
+}

@@ -1,0 +1,46 @@
+.accordion {
+    padding: 24px;
+    width: 622px;
+    border: 2px solid #F8F8F8;
+    margin-bottom: 16px;
+    border: 2px solid #B4B4B4;
+
+    .content {
+        margin-top: 32px;
+        font-family: Roboto;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+}
+
+.title {
+    font-family: Arvo;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+
+    div {
+        max-width: 500px;
+    }
+}
+
+.chevron {
+    font-size: 23px;
+    font-weight: bolder;
+}
+
+@media (max-width: 768px) {
+    .accordion {
+        width: 100%;
+    }
+}

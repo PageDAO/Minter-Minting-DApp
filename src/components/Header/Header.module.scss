@@ -1,0 +1,87 @@
+.div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 32px 0 30px;
+
+    div {
+        display: flex;
+        align-items: center;
+
+        a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            line-height: 30px;
+        }
+
+        a.active {
+            border-bottom: 4px solid #373737;
+        }
+    }
+}
+
+.daoMember {
+    margin-top: -16px;
+    margin-left: -14px;
+    z-index: 5;
+}
+
+.logo {
+    width: 34px;
+    height: 40px;
+}
+
+.divider {
+    height: 48px;
+    width: 1px;
+    background-color: var(--grey80);
+    margin: 0 15px;
+}
+
+@media (max-width: 768px) {
+    .toggle {
+        margin-left: 8px;
+    }
+    
+    .logo {
+        width: 23px;
+        height: 27px;
+    }
+
+    .daoMember {
+        width: 21.4px;
+        height: 32px;
+        margin-top: 0px;
+        margin-left: -11px;
+    }
+
+
+    .divider {
+        height: 32px;
+    }
+
+    .menu {
+        position: fixed;
+        overflow: hidden;
+        top: 94px;
+        left: 0;
+        padding-left: 24px;
+        width: 100%;
+        height: calc(100% - 94px);
+        background: var(--white);
+        padding-bottom: 107px;
+
+        display: flex;
+        align-items: flex-end;
+
+        a {
+            text-decoration: none;
+        }
+
+        a.active {
+            border-bottom: 4px solid #373737;
+        }
+    }
+}

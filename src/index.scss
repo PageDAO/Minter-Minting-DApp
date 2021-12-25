@@ -1,0 +1,537 @@
+:root {
+    --red50: #C5614D;
+    --black: #0D0C0B;
+    --white: #F8F8F8;
+    --red10: #F3AC9E;
+    --red20: #E48C7B;
+    --red70: #9E4634;
+    --red60: #B75440;
+    --grey10: #EAEAEA;
+    --grey20: #DBDBDB;
+    --grey40: #B4B4B4;
+    --grey60: #636363;
+    --grey80: #373737;
+    --red: #EA6D6D;
+    --beige: #FFF1E7;
+    --yellow: #F8D456;
+    --deepPurple: #2E1E50;
+}
+
+.red50 {
+    color: var(--red50);
+}
+
+.black {
+    color: var(--black);
+}
+
+.white {
+    color: var(--white);
+    background-color: transparent !important;
+}
+
+a, a:hover {
+    color: var(--black);
+}
+
+.red10 {
+    color: var(--red10);
+}
+
+.red20 {
+    color: var(--red20);
+}
+
+.red70 {
+    color: var(--red70);
+}
+
+.red60 {
+    color: var(--red60);
+}
+
+.grey10 {
+    color: var(--grey10);
+}
+
+.grey20 {
+    color: var(--grey20);
+}
+
+.grey40 {
+    color: var(--grey40);
+}
+
+.grey60 {
+    color: var(--grey60);
+}
+
+.grey80 {
+    color: var(--grey80);
+}
+
+.red {
+    color: var(--red);
+}
+
+.beige {
+    color: var(--beige);
+}
+
+.yellow {
+    color: var(--yellow);
+}
+
+.deepPurple {
+    color: var(--deepPurple);
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+* {
+    color: #000;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--white);
+}
+
+.xl {
+    background: #C4C4C4;
+    box-shadow: 0px 2px 22px 2px rgba(0, 0, 0, 0.1);
+}
+
+.gradient {
+    background: linear-gradient(0.15deg, #EAEAEA 0.14%, #F8F8F8 99.88%);
+}
+
+.h2 {
+    font-family: Arvo;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 72px;
+    line-height: 80px;
+}
+
+.h3 {
+    font-family: Arvo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 54px;
+}
+
+.h4 {
+    font-family: Arvo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 34px;
+    line-height: 40px;
+    letter-spacing: 0.5px;
+}
+
+.h5 {
+    font-family: Arvo;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.h6 {
+    font-family: Arvo;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+}
+
+.subTitle_1 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 1px;
+}
+
+.subTitle_2 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.body_1 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.body_2 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.button {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.caption {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+@media (max-width: 768px) {
+    .button_sm {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .h6_sm {
+        font-family: Arvo;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .h5_sm {
+        font-family: Arvo;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    .h4_sm {
+        font-family: Arvo;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .h3_sm {
+        font-family: Arvo;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 36px;
+        line-height: 44px;
+    }
+
+    .h2_sm {
+        font-family: Arvo;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 50px;
+    }
+
+    .caption_1_mob {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 17px;
+    }
+
+    .caption_2_mob {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 15px;
+    }
+
+    .button_mob {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 18px;
+    }
+
+    .navMenu_mob {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 14px;
+    }
+}
+
+.h1_local {
+    font-family: Arvo;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 160px;
+    line-height: 198px;
+    letter-spacing: -0.5px;
+}
+
+.text_center {
+    text-align: center;
+}
+
+.text_right {
+    text-align: right;
+}
+
+.d_flex {
+    display: flex;
+}
+
+.align_items_center {
+    align-items: center;
+}
+
+.justify_content_between {
+    justify-content: space-between;
+}
+
+.justify_content_center {
+    justify-content: center;
+}
+
+.justify_content_around {
+    justify-content: space-around;
+}
+
+.font_bold {
+    font-weight: bold;
+}
+
+.font_600 {
+    font-weight: 600;
+}
+
+.font_400 {
+    font-weight: 400;
+}
+
+.font_40 {
+    font-size: 40px;
+    line-height: 45px;
+}
+
+.font_38 {
+    font-size: 38px;
+    line-height: 43px;
+}
+
+.font_30 {
+    font-size: 30px;
+    line-height: 35px;
+}
+
+.font_28 {
+    font-size: 28px;
+    line-height: 33px;
+}
+
+.font_25 {
+    font-size: 25px;
+    line-height: 30px;
+}
+
+.font_20 {
+    font-size: 20px;
+    line-height: 25px;
+}
+
+.font_18 {
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.font_15 {
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.font_10 {
+    font-size: 10px;
+    line-height: 15px;
+}
+
+.mt_200 {
+    margin-top: 200px;
+}
+
+.mt_100 {
+    margin-top: 100px;
+}
+
+.mt_80 {
+    margin-top: 80px;
+}
+
+.mt_65 {
+    margin-top: 65px;
+}
+
+.mt_50 {
+    margin-top: 50px;
+}
+
+.mt_40 {
+    margin-top: 40px;
+}
+
+.mt_30 {
+    margin-top: 30px;
+}
+
+.mt_25 {
+    margin-top: 25px;
+}
+
+.mt_20 {
+    margin-top: 20px;
+}
+
+.mt_15 {
+    margin-top: 15px;
+}
+
+.mt_10 {
+    margin-top: 10px;
+}
+
+.mt_8 {
+    margin-top: 8px;
+}
+
+.mt_5 {
+    margin-top: 5px;
+}
+
+.mt_0 {
+    margin-top: 0;
+}
+
+.ml_50 {
+    margin-left: 50px;
+}
+
+.ml_40 {
+    margin-left: 40px;
+}
+
+.ml_30 {
+    margin-left: 30px;
+}
+
+.ml_20 {
+    margin-left: 20px;
+}
+
+.ml_15 {
+    margin-left: 15px;
+}
+
+.ml_10 {
+    margin-left: 10px;
+}
+
+.ml_0 {
+    margin-left: 0;
+}
+
+.ml_auto {
+    margin-left: auto;
+}
+
+.mr_50 {
+    margin-right: 50px;
+}
+
+.mr_40 {
+    margin-right: 40px;
+}
+
+.mr_30 {
+    margin-right: 30px;
+}
+
+.mr_20 {
+    margin-right: 20px;
+}
+
+.mr_15 {
+    margin-right: 15px;
+}
+
+.mr_10 {
+    margin-right: 10px;
+}
+
+.mr_0 {
+    margin-right: 0;
+}
+
+.mr_auto {
+    margin-right: auto;
+}
+
+.mb_100 {
+    margin-bottom: 100px;
+}
+
+.mb_50 {
+    margin-bottom: 50px;
+}
+
+.mb_40 {
+    margin-bottom: 40px;
+}
+
+.mb_30 {
+    margin-bottom: 30px;
+}
+
+.mb_25 {
+    margin-bottom: 25px;
+}
+
+.mb_20 {
+    margin-bottom: 20px;
+}
+
+.mb_10 {
+    margin-bottom: 10px;
+}
+
+.mb_0 {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .container{
+        padding: 0 18px;
+    }
+}

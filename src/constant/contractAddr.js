@@ -1,0 +1,3 @@
+export const ComunityContractAddr = '0x70332FcA05DF80a64a0328029E6536DCc56bCc7b'
+export const MembershipContractAddr = '0x8082e704e8D96b887d8511c3a27ef8DB3bEA8E77'
+export const UniftyContractAddr = '0xa8C3Fdf18698970B6E1Fb59D00dFf6114e242372'

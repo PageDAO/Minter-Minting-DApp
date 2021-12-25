@@ -1,0 +1,24 @@
+.div {
+    width: 297px;
+    border-top: 8px solid var(--black);
+    padding-top: 18px;
+
+    .row:first-child {
+        border: none;
+        margin-top: 18px;
+    }
+}
+
+.row {
+    border-top: 1px solid var(--black);
+    display: flex;
+    align-items: flex-start;
+    padding: 16px 0;
+}
+
+@media (max-width: 768px) {
+    .div {
+        width: 100%;
+        margin-top: 50px;
+    }
+}
