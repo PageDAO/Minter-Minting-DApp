@@ -44,7 +44,8 @@ const genreData = [
 
 const languageData = [
     { "id": 'EN', "title": "EN" },
-    { "id": 'RU', "title": "RU" }
+    { "id": 'RU', "title": "RU" },
+    { "id": 'ES', "title": "ES" },
 ]
 
 const fields = { text: 'title', value: 'id' }
