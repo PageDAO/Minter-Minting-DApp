@@ -88,9 +88,13 @@ const Second = (props) => {
         } else if (checkNet()) {
             setMinting(true)
             setActiveProgressModal(true)
-            const result = await api.nft.create(pdf, title, author, description, image, artist, genre, language, qty)
+            const result = await api.nft.create(pdf, title,
+                author.toString().replace(", ", ","),
+                description, image,
+                artist.toString().replace(", ", ","),
+                genre.toString().replace(", ", ","),
+                language, qty)
             const metadataURL = result.data.metadataURL
-            // const metadataURL = "https://gateway.pinata.cloud/ipfs/QmSwXm1XQbgDkmbn1YrxVuvfRxpjzq5FPv2MLbneD3aLXd"
 
             comunityContract.methods.mint(qty, qty, `${metadataURL}`).send({
                 from: accountAddress
@@ -102,13 +106,14 @@ const Second = (props) => {
                     .then(res => {
                         const collection = res
                         setOpenSeaUrl(`${OPENSEA_URL}/${collection}/${tokenId}`)
+                        setMinting(false)
+                        setMinted(true)
                     })
-                setMinting(false)
-                setMinted(true)
             }).on('error', function (error, receipt) { // If the transaction was rejected by the network with a receipt, the second parameter will be the receipt.
                 console.log('error in mint:', error)
                 setMinting(false)
                 setActiveProgressModal(false)
+                setMinted(false)
             });
         }
     }
@@ -168,7 +173,7 @@ const Second = (props) => {
                 <div className={styles.pdf_container}>
                     <div className="d_flex align_items_center justify_content_between mb_20">
                         <div className="h6">PDF preview</div>
-                        <img src={getImg('close_modal.png')} alt="img" onClick={() => setActivePdfModal(false)} />
+                        <img src={getImg('close_modal.png')} alt="img" onClick={() => { setActivePdfModal(false); setMinted(false) }} />
                     </div>
                     <PdfModal url={pdfUrl} />
                 </div>
