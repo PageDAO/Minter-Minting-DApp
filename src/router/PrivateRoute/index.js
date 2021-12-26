@@ -49,7 +49,9 @@ const PrivateRoute = ({ component: Component, ...restOfProps }) => {
     useEffect(() => {
         if (chainId === CHAIN_ID) {
             try {
-                membershipContract?.methods.balanceOf(accountAddress, 0).call().then(res => {
+                // this was hardcoded to tokenid 0, should be the tokenid for this token - todo: put this in config "utils/web3/wallet"
+                // https://opensea.io/assets/matic/0x2953399124f0cbb46d2cbacd8a89cf0599974963/111515117730074772965449733806193829182550002799402836500696112828456993030244
+                membershipContract?.methods.balanceOf(accountAddress, "111515117730074772965449733806193829182550002799402836500696112828456993030244").call().then(res => {
                     let hasMembership = (res > 0) ? true : false
                     dispatch(changeMembership(hasMembership))
                 })
