@@ -136,7 +136,7 @@ const Second = (props) => {
                     <div className={styles.footer}>
                         <div className="body_2">Network: Polygon</div>
                         <div className={styles.divider}></div>
-                        <a href="https://opensea.io/assets/0xd9c6e5e525bf60716351cd316110bd461389d94f/2"
+                        <a href="https://opensea.io/assets/matic/0x2953399124f0cbb46d2cbacd8a89cf0599974963/111515117730074772965449733806193829182550002799402836500696112828456993030244"
                             className="d_flex align_items_center" target="_blank" rel="noreferrer">
                             <div className="body_2 red50">Get it on Opensea</div>
                             <img src={getImg('open_new.png')} className="ml_20" alt="img" />

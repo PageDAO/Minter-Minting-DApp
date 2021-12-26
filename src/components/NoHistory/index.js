@@ -10,7 +10,7 @@ const NoHistory = (props) => {
         <div className={styles.div}>
             {props.hasMembership && <div>
                 <img src={getImg('nft.png')} alt="img" />
-                <div className="body_2 mt_30 mb_25">You haven’t mint any book yet.</div>
+                <div className="body_2 mt_30 mb_25">You haven’t minted any books yet.</div>
                 <Button value="Get Started"
                     style={{ width: 187, height: 56, marginLeft: 'auto', marginRight: 'auto' }} red />
             </div>}
