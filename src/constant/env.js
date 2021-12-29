@@ -1,5 +1,6 @@
 // const API_URL = 'http://192.168.104.27:3001/api'
-const API_URL = 'https://nftbb-minter-backend.herokuapp.com/api'
+// const API_URL = 'https://nftbb-minter-backend.herokuapp.com/api'
+const API_URL = 'https://apiv2.nftbookbazaar.com/api'
 
 //rinkeby
 // const CHAIN_ID = 4
