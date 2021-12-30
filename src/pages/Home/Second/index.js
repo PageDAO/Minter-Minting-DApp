@@ -10,6 +10,7 @@ import { getImg, useResize } from "../../../utils/Helper"
 import Button from "../../../components/Button"
 import CreateNFT from "../../../components/CreatNFT"
 import PdfModal from "../../../components/PdfModal"
+import Progress from "../../../components/Progress"
 
 const Second = (props) => {
 
@@ -182,11 +183,18 @@ const Second = (props) => {
             {activeProgressModal && <div>
                 {(minting || minted) && <div className={styles.modal}>
                     <div className={styles.container}>
-                        {minting && <div className="h6">Minting in progress...</div>}
+                        {minting && <div className="text_center">
+                            <Progress />
+                            <div className="h6 mt_30">Minting in progress...</div>
+                        </div>}
                         {minted && <div>
                             <div className={styles.success}>
+                                <div className={styles.success_container}>
+                                    <div></div>
+                                    <img className={styles.main} src={getImg('success.png')} alt="img" />
+                                    <img className={styles.close} src={getImg('close_modal.png')} alt="img" onClick={() => { setMinted(false); setActiveProgressModal(false) }} />
+                                </div>
                                 <div className="h6">Success!</div>
-                                <img src={getImg('close_modal.png')} alt="img" onClick={() => { setMinted(false); setActiveProgressModal(false) }} />
                             </div>
                             <div className="d_flex align_items_center justify_content_between mt_15">
                                 <a href={openseaUrl} target="_blank" rel="noreferrer"
