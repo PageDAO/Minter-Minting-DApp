@@ -89,12 +89,16 @@ const Second = (props) => {
         } else if (checkNet()) {
             setMinting(true)
             setActiveProgressModal(true)
-            const result = await api.nft.create(pdf, title,
+            const result = await api.nft.create(
+                pdf,
+                title,
                 author.toString().replace(", ", ","),
                 description, image,
                 artist.toString().replace(", ", ","),
                 genre.toString().replace(", ", ","),
-                language, qty)
+                language,
+                qty
+            )
             const metadataURL = result.data.metadataURL
 
             comunityContract.methods.mint(qty, qty, `${metadataURL}`).send({
@@ -145,7 +149,7 @@ const Second = (props) => {
                     <div className="body_1">
                         Hold up! The minter is currently in Beta and only open to PageDAO Members to access at this time. You can pick up an official member card NFT here if any are available.
                         <br /><br />
-                        Stay tuned for #announcements in the <span className="red50">PageDAO discord</span> as we continue to roll out more news. 🙂
+                        Stay tuned for #announcements in the <a href="https://discord.gg/zpZTm38ZHC" className="red50" target="_blank" rel="noreferrer">PageDAO discord</a> as we continue to roll out more news. 🙂
                     </div>
                     <img src={getImg('no_member.png')} className="mt_15 mb_25" alt="img" />
                     <div className={styles.footer}>
