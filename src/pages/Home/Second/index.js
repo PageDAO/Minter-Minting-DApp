@@ -44,7 +44,7 @@ const Second = (props) => {
             alert('Please connect Metamask!')
             return false
         } else if (chainId !== CHAIN_ID) {
-            alert('Please make sure you are in Ethereum Main Net')
+            alert('Please make sure you are in Polygon Main Net')
             return false
         }
         return true
@@ -116,6 +116,7 @@ const Second = (props) => {
                     })
             }).on('error', function (error, receipt) { // If the transaction was rejected by the network with a receipt, the second parameter will be the receipt.
                 console.log('error in mint:', error)
+                alert('Transaction failed. Check your transaction history.')
                 setMinting(false)
                 setActiveProgressModal(false)
                 setMinted(false)

@@ -8,7 +8,7 @@ import { initWallet, accountAddress, chainId, closeWalletProvider, membershipCon
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { changeMembership } from "../../actions/membership";
-import { CHAIN_ID, CHAIN_ID_HEX } from "../../constant/env";
+import { CHAIN_ID, CHAIN_ID_HEX, TOKEN_ID } from "../../constant/env";
 
 const PrivateRoute = ({ component: Component, ...restOfProps }) => {
 
@@ -51,7 +51,7 @@ const PrivateRoute = ({ component: Component, ...restOfProps }) => {
             try {
                 // this was hardcoded to tokenid 0, should be the tokenid for this token - todo: put this in config "utils/web3/wallet"
                 // https://opensea.io/assets/matic/0x2953399124f0cbb46d2cbacd8a89cf0599974963/111515117730074772965449733806193829182550002799402836500696112828456993030244
-                membershipContract?.methods.balanceOf(accountAddress, "111515117730074772965449733806193829182550002799402836500696112828456993030244").call().then(res => {
+                membershipContract?.methods.balanceOf(accountAddress, TOKEN_ID).call().then(res => {
                     let hasMembership = (res > 0) ? true : false
                     dispatch(changeMembership(hasMembership))
                 })
