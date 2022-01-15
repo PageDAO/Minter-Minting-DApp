@@ -1,5 +1,6 @@
 import { clearWalletProvider, connectToWallet, web3ModalProvider } from "./Web3Modal";
 import { CHANGE_WALLET } from '../../actions/types';
+import Web3 from "web3";
 
 import store from '../../store'
 import { ComunityContractAddr, MembershipContractAddr, UniftyContractAddr } from "../../constant/contractAddr";
@@ -32,17 +33,22 @@ async function updateAccount() {
 export async function initWallet() {
   try {
     web3Modal = await connectToWallet()
-
     chainId = await web3Modal.eth.net.getId();
-    comunityContract = new web3Modal.eth.Contract(MainABI, ComunityContractAddr)
-    membershipContract = new web3Modal.eth.Contract(MembershipABI, MembershipContractAddr)
-    uniftyContract = new web3Modal.eth.Contract(ReadmeABI, UniftyContractAddr)
-
     await updateAccount()
   } catch (e) {
     console.log("wallet connect error, reconnecting")
   }
 }
+
+function getContracts() {
+  const web3 = new Web3(new Web3.providers.HttpProvider("https://polygon-rpc.com/"));
+
+  comunityContract = new web3.eth.Contract(MainABI, ComunityContractAddr)
+  membershipContract = new web3.eth.Contract(MembershipABI, MembershipContractAddr)
+  uniftyContract = new web3.eth.Contract(ReadmeABI, UniftyContractAddr)
+}
+
+getContracts()
 
 export function updateAccountAddress(accounts) {
   if (accounts !== undefined && accounts.length > 0) {

@@ -17,7 +17,9 @@ const HistoryRow = (props) => {
                 <div style={{ width: '100%' }}>
                     <div className="d_flex align_items_center">
                         <div className={styles.img}>
-                            <img src={getImg(props.obj.img)} alt="img" />
+                            <a href={props.obj.openSeaUrl} target="_blank" rel="noreferrer">
+                                <img src={props.obj.img} alt="img" />
+                            </a>
                         </div>
                         <div className="ml_15">
                             <div className="h5">{props.obj.title}</div>
@@ -26,8 +28,7 @@ const HistoryRow = (props) => {
                     </div>
                     <div className={styles.banner}>
                         <div className="body_1">QTY: {props.obj.qty}</div>
-                        <a href="https://polygonscan.com/"
-                            target="_blank" rel="noreferrer"
+                        <a href={props.obj.etherscanUrl} target="_blank" rel="noreferrer"
                             className="d_flex align_items_center">
                             <div className="subTitle_2 red50">Etherscan</div>
                             <img src={getImg('open_new.png')} className="ml_10" alt="img" />
