@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { useSelector } from "react-redux"
 
 import api from '../../../api'
@@ -120,15 +120,6 @@ const Second = (props) => {
         }
     }
 
-    useEffect(() => {
-        const script = document.createElement("script");
-        script.src = "https://platform.twitter.com/widgets.js";
-        script.async = true;
-        script.attributes.charset = "utf-8"
-
-        document.body.appendChild(script);
-    }, [])
-
     return (
         <div id="wallet">
             {!hasMembership && <div className={styles.div} style={!isMobile ? { backgroundImage: `url(${getImg('grid_bg.png')})` } : { backgroundImage: `url(${getImg('grid_bg_mob.png')})` }}>
@@ -206,7 +197,7 @@ const Second = (props) => {
                                 </div>
                                 <div className="h6">Success!</div>
                             </div>
-                            <div className="d_flex align_items_center justify_content_between mt_15 mb_30">
+                            <div className="d_flex align_items_center justify_content_between mt_15">
                                 <a href={openseaUrl} target="_blank" rel="noreferrer"
                                     className="d_flex align_items_center">
                                     <div className="body_2 red50 mr_20">Opensea</div>
@@ -220,16 +211,11 @@ const Second = (props) => {
                                     <img src={getImg('open_new.png')} alt="img" />
                                 </a>
                             </div>
-                            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" className="twitter-share-button" data-size="large" data-text="Check out this awesome #NFTBook I just minted!"
-                                data-url={`https://${openseaUrl}`} data-via="page_dao" data-hashtags="NFTBook" data-lang="en" data-show-count="false" target="_blank" rel="noreferrer">
-                                <Button value="Share on Twitter"
-                                    style={{ width: "100%", height: 46 }} white />
-                            </a>
                         </div>}
                     </div>
                 </div>}
             </div>}
-        </div >
+        </div>
     )
 }
 
