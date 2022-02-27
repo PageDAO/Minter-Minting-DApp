@@ -61,10 +61,10 @@ const PrivateRoute = ({ component: Component, ...restOfProps }) => {
         }
     }, [accountAddress])
 
-    useEffect(() => {
-        if (localStorage.getItem("WEB3_CONNECT_CACHED_PROVIDER")) init()
-        else setAccount("")
-    }, [address])
+    // useEffect(() => {
+    //     if (localStorage.getItem("WEB3_CONNECT_CACHED_PROVIDER")) init()
+    //     else setAccount("")
+    // }, [address])
 
     return (
         <div className={styles.div}>
