@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { useSelector } from "react-redux"
-
+import wait from 'wait'
 import api from '../../../api'
 
 import styles from './Second.module.scss'
@@ -103,11 +103,13 @@ const Second = (props) => {
 
             comunityContract.methods.mint(qty, qty, `${metadataURL}`).send({
                 from: accountAddress
-            }).on('confirmation', function (confirmationNumber, receipt) {
-                const transactionHash = receipt.transactionHash
-                setEtherscanUrl(`${ETHERSCAN_URL}/${transactionHash}`)
-                const tokenId = receipt.events.Minted.returnValues[0]
-                comunityContract.methods.Collection().call({ from: accountAddress })
+            }).on('confirmation', async function (confirmationNumber, receipt) {
+                const transactionHash = await receipt.transactionHash
+                await setEtherscanUrl(`${ETHERSCAN_URL}/${transactionHash}`)
+                const tokenId = await receipt.events.Minted.returnValues[0]
+                console.log("waiting for some time")
+                await wait(1000)
+                await comunityContract.methods.Collection().call({ from: accountAddress })
                     .then(res => {
                         const collection = res
                         setOpenSeaUrl(`${OPENSEA_URL}/${collection}/${tokenId}`)

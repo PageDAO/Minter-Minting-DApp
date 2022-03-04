@@ -21,6 +21,7 @@
     "redux-thunk": "^2.4.0",
     "sass": "^1.43.4",
     "styled-components": "^5.3.3",
+	"wait": "^0.4.2",
     "web-vitals": "^1.0.1",
     "web3": "^1.6.1",
     "web3modal": "^1.9.4"
