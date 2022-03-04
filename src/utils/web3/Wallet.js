@@ -41,8 +41,7 @@ export async function initWallet() {
 }
 
 function getContracts() {
-  const web3 = new Web3(new Web3.providers.HttpProvider("https://polygon-rpc.com/"));
-
+  const web3 = new Web3(Web3.givenProvider);
   comunityContract = new web3.eth.Contract(MainABI, ComunityContractAddr)
   membershipContract = new web3.eth.Contract(MembershipABI, MembershipContractAddr)
   uniftyContract = new web3.eth.Contract(ReadmeABI, UniftyContractAddr)
