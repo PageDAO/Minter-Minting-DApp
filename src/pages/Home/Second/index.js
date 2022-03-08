@@ -4,7 +4,7 @@ import wait from 'wait'
 import api from '../../../api'
 
 import styles from './Second.module.scss'
-import { chainId, accountAddress, comunityContract } from "../../../utils/web3/Wallet"
+import { chainId, accountAddress, comunityContract, comunityContract2, web3given } from "../../../utils/web3/Wallet"
 import { CHAIN_ID, OPENSEA_URL, ETHERSCAN_URL } from "../../../constant/env"
 import { getImg, useResize } from "../../../utils/Helper"
 import Button from "../../../components/Button"
@@ -24,13 +24,13 @@ const Second = (props) => {
     const [etherscanUrl, setEtherscanUrl] = useState('')
 
     const [pdf, setPdf] = useState('')
-    const [pdfName, setPdfName] = useState('No file choosen')
+    const [pdfName, setPdfName] = useState('No file chosen')
     const [pdfUrl, setPdfUrl] = useState('')
     const [title, setTitle] = useState('')
     const [author, setAuthor] = useState('')
     const [description, setDescription] = useState('')
     const [image, setImage] = useState('')
-    const [imageName, setImageName] = useState('No file choosen')
+    const [imageName, setImageName] = useState('No file chosen')
     const [artist, setArtist] = useState('')
     const [genre, setGenre] = useState('')
     const [language, setLanguage] = useState('')
@@ -68,7 +68,7 @@ const Second = (props) => {
     }
 
     const create = async () => {
-        if (pdfName === 'No file choosen') {
+        if (pdfName === 'No file chosen') {
             alert('Please select PDF file')
         } else if (title === '') {
             alert('Please input title')
@@ -76,7 +76,7 @@ const Second = (props) => {
             alert('Please input author')
         } else if (description === '') {
             alert('Please input description')
-        } else if (imageName === 'No file choosen') {
+        } else if (imageName === 'No file chosen') {
             alert('Please input banner image')
         } else if (artist === '') {
             alert('Please input artist')
@@ -86,7 +86,10 @@ const Second = (props) => {
             alert('Please select language')
         } else if (qty === 0) {
             alert('Please input quantity')
-        } else if (checkNet()) {
+        } else if (qty > 1000) {
+            alert('Max number exceeds')
+        }
+         else if (checkNet()) {
             setMinting(true)
             setActiveProgressModal(true)
             const result = await api.nft.create(
@@ -101,27 +104,38 @@ const Second = (props) => {
             )
             const metadataURL = result.data.metadataURL
 
-            comunityContract.methods.mint(qty, qty, `${metadataURL}`).send({
-                from: accountAddress
+            const curGasPrice = await web3given.eth.getGasPrice()
+            console.log("gasPrice:", curGasPrice)
+
+            const estimatedGas = await comunityContract2.methods.mint(qty, qty, `${metadataURL}`).estimateGas({
+                from: accountAddress,
+            })
+            console.log("estimated gas:", estimatedGas)
+            await wait(1000)
+            comunityContract2.methods.mint(qty, qty, `${metadataURL}`).send({
+                from: accountAddress,
+                gasPrice: curGasPrice,
+                gas: estimatedGas*5
             }).on('confirmation', async function (confirmationNumber, receipt) {
                 const transactionHash = await receipt.transactionHash
                 await setEtherscanUrl(`${ETHERSCAN_URL}/${transactionHash}`)
                 const tokenId = await receipt.events.Minted.returnValues[0]
                 console.log("waiting for some time")
                 await wait(1000)
-                await comunityContract.methods.Collection().call({ from: accountAddress })
-                    .then(res => {
+                await comunityContract2.methods.Collection().call({ from: accountAddress })
+                    .then(async (res) => {
                         const collection = res
-                        setOpenSeaUrl(`${OPENSEA_URL}/${collection}/${tokenId}`)
+                        await setOpenSeaUrl(`${OPENSEA_URL}/${collection}/${tokenId}`)
+                        await wait(1000)
                         setMinting(false)
                         setMinted(true)
                     })
-            }).on('error', function (error, receipt) { // If the transaction was rejected by the network with a receipt, the second parameter will be the receipt.
-                console.log('error in mint:', error)
-                setMinting(false)
-                setActiveProgressModal(false)
-                setMinted(false)
-            });
+                    }).on('error', function (error, receipt) { // If the transaction was rejected by the network with a receipt, the second parameter will be the receipt.
+                        console.log('error in mint:', error)
+                        setMinting(false)
+                        setActiveProgressModal(false)
+                        setMinted(false)
+                    });
         }
     }
 

@@ -11,9 +11,18 @@ import ReadmeABI from '../../constant/abi/ReadmeABI.json'
 export let accountAddress = undefined
 export let web3Modal = undefined
 export let chainId = null
-export let comunityContract = null
-export let membershipContract = null
-export let uniftyContract = null
+
+const web3http = new Web3(new Web3.providers.HttpProvider("https://polygon-rpc.com/"))
+export let comunityContract = new web3http.eth.Contract(MainABI, ComunityContractAddr)
+export let membershipContract = new web3http.eth.Contract(MembershipABI, MembershipContractAddr)
+export let uniftyContract = new web3http.eth.Contract(ReadmeABI, UniftyContractAddr)
+
+export const web3given = new Web3(Web3.givenProvider);
+export let comunityContract2 = new web3given.eth.Contract(MainABI, ComunityContractAddr)
+export let membershipContract2 = new web3given.eth.Contract(MembershipABI, MembershipContractAddr)
+export let uniftyContract2 = new web3given.eth.Contract(ReadmeABI, UniftyContractAddr)
+
+
 
 async function updateAccount() {
   const accounts = await web3Modal.eth.getAccounts()
@@ -40,14 +49,18 @@ export async function initWallet() {
   }
 }
 
-function getContracts() {
-  const web3 = new Web3(Web3.givenProvider);
-  comunityContract = new web3.eth.Contract(MainABI, ComunityContractAddr)
-  membershipContract = new web3.eth.Contract(MembershipABI, MembershipContractAddr)
-  uniftyContract = new web3.eth.Contract(ReadmeABI, UniftyContractAddr)
-}
+// function getContracts() {
+//   // const web3 = new Web3(Web3.givenProvider);
+//   // https://polygon-rpc.com/
+//   const web3given = new Web3(Web3.givenProvider);
+//   console.log("web3.givenProvider", web3)
+//   comunityContract = new web3given.eth.Contract(MainABI, ComunityContractAddr)
+//   membershipContract = new web3given.eth.Contract(MembershipABI, MembershipContractAddr)
+//   uniftyContract = new web3given.eth.Contract(ReadmeABI, UniftyContractAddr)
+//   console.log("web3_.polygonProvider", web3_)
+  
+// }
 
-getContracts()
 
 export function updateAccountAddress(accounts) {
   if (accounts !== undefined && accounts.length > 0) {
