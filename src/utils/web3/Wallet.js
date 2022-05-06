@@ -6,6 +6,7 @@ import store from '../../store'
 import { ComunityContractAddr, MembershipContractAddr, UniftyContractAddr } from "../../constant/contractAddr";
 import MainABI from '../../constant/abi/MainABI.json'
 import MembershipABI from '../../constant/abi/MembershipABI.json'
+import Membership721ABI from '../../constant/abi/Membership721ABI.json'
 import ReadmeABI from '../../constant/abi/ReadmeABI.json'
 
 export let accountAddress = undefined
@@ -15,6 +16,7 @@ export let chainId = null
 const web3http = new Web3(new Web3.providers.HttpProvider("https://polygon-rpc.com/"))
 export let comunityContract = new web3http.eth.Contract(MainABI, ComunityContractAddr)
 export let membershipContract = new web3http.eth.Contract(MembershipABI, MembershipContractAddr)
+export let membershipContract721 = new web3http.eth.Contract(Membership721ABI, Membership721ContractAddr)
 export let uniftyContract = new web3http.eth.Contract(ReadmeABI, UniftyContractAddr)
 
 export const web3given = new Web3(Web3.givenProvider);
