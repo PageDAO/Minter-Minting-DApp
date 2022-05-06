@@ -154,7 +154,7 @@ const Second = (props) => {
                 </div>}
                 {props.account && <div className={styles.noMember}>
                     <div className="body_1">
-                        Hold up! The minter is currently in Beta and only open to PageDAO Members to access at this time. You can pick up an official member card NFT here if any are available.
+                        Excited to mint your first NFTBook? So are we! Go grab a PageDAO Membership NFT that will allow access to it while supplies last. <a href="https://membership.nftbookbazaar.com">https://membership.nftbookbazaar.com</a>
                         <br /><br />
                         Stay tuned for #announcements in the <a href="https://discord.gg/zpZTm38ZHC" className="red50" target="_blank" rel="noreferrer">PageDAO discord</a> as we continue to roll out more news. 🙂
                     </div>
