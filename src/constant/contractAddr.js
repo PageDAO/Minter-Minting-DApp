@@ -5,6 +5,7 @@ let UniftyContractAddr = ''
 let MembershipContractAddr = ''
 let Membership721ContractAddr = ''
 
+
 switch (NET) {
     case 'rinkeby':
         ComunityContractAddr = '0x70332FcA05DF80a64a0328029E6536DCc56bCc7b'
