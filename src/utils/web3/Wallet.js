@@ -3,7 +3,7 @@ import { CHANGE_WALLET } from '../../actions/types';
 import Web3 from "web3";
 
 import store from '../../store'
-import { ComunityContractAddr, MembershipContractAddr, UniftyContractAddr } from "../../constant/contractAddr";
+import { ComunityContractAddr, MembershipContractAddr, Membership721ContractAddr, UniftyContractAddr } from "../../constant/contractAddr";
 import MainABI from '../../constant/abi/MainABI.json'
 import MembershipABI from '../../constant/abi/MembershipABI.json'
 import Membership721ABI from '../../constant/abi/Membership721ABI.json'
