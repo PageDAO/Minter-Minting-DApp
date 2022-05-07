@@ -34,5 +34,6 @@ switch (NET) {
 export {
     ComunityContractAddr,
     UniftyContractAddr,
-    MembershipContractAddr
+    MembershipContractAddr,
+    Membership721ContractAddr
 }
