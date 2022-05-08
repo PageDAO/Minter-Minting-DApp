@@ -20,7 +20,7 @@ const First = () => {
             <div className="h4">Create your NFT </div>
             <div className={styles.text}>
                 <div className="body_1">
-                    Our NFT minter is design & build with book/pdf in mind. We figured that other marketplace didn’t built with pdf content in mind, this is why we are proud to present this minter for our DAO members.
+                    Our NFT minter is designed and built with books/PDFs in mind. We figured that other marketplace haven't provided pdf content minting capabilities, this is why we are proud to present this minter for our DAO members.
                 </div>
             </div>
             <Link to="#" className="mt_20 body_1">Get started now.</Link>
