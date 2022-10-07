@@ -75,44 +75,7 @@ const Third = () => {
     const { isMobile } = useResize()
     return (
         <div className={styles.div}>
-            <div className={styles.author}>
-                <div>
-                    <div>
-                        <div className="h2 h2_sm white" style={{ maxWidth: 513 }}>
-                            Meet Our Authors
-                        </div>
-                        <div className="body_1 mt_25 white" style={{ maxWidth: 513 }}>
-                            Since July 2021, our team published a handful of books to metaverse. PageDAO is community of writers building Web3 tech and experiences FOR writers.
-                        </div>
-                    </div>
-                    <div>
-                        <AliceCarousel
-                            autoPlay
-                            autoPlayInterval="5000"
-                            animationDuration="1500"
-                            mouseTracking
-                            infinite
-                            disableDotsControls="false"
-                            items={items} />
-                    </div>
-                </div>
-            </div>
-            <div className={styles.roadmap}>
-                <div className={styles.container}>
-                    <div className={styles.left}>
-                        <div>
-                            <div className={styles.header}>
-                                <div>Page</div><span>DAO</span><div>.</div>
-                            </div>
-                            <div className="h2 h2_sm white mt_15">Roadmap</div>
-                        </div>
-                        {!isMobile && <img src={getImg('roadmap.png')} alt="img" />}
-                    </div>
-                    <Roadmap obj={roadmapQ1} />
-                    <Roadmap obj={roadmapQ2} />
-                    {isMobile && <img src={getImg('roadmap.png')} className="mt_100" alt="img" />}
-                </div>
-            </div>
+            
             <div className={styles.faq}>
                 <div>
                     <div className="h3 mb_50">FAQ</div>
