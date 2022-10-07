@@ -20,7 +20,11 @@ const First = () => {
             <div className="h4">Create your NFT </div>
             <div className={styles.text}>
                 <div className="body_1">
-                    Our NFT minter is designed and built with books/PDFs in mind. We figured that other marketplace haven't provided pdf content minting capabilities, this is why we are proud to present this minter for our DAO members.
+                    The PageDAO ReadMe Books NFTBook Minter is designed to give PageDAO Members the opportunity to collaborate in the creation of an NFTBook Collection the DAO owns on OpenSea.io. 
+                    <br></br>
+                    1/3 of Royalties received by the DAO go to buy $PAGE. 
+                    <br></br>
+                    *This open source technology is in beta, and does not like large files.
                 </div>
             </div>
             <Link to="#" className="mt_20 body_1">Get started now.</Link>

@@ -51,7 +51,7 @@ const roadmapQ2 = {
 }
 
 const faqs = [
-    { "title": "What does the NFTBook Minter do exactly?", "content": "Our Minter is built specifically for reading books on blockchain. All NFTBooks comes with a standard pdf viewer built-in for anyone to read directly from OpenSea. You also have the freedom to do whatever you want with your NFTBooks; sell them on any NFT marketplace, give them away, burn them or just keep all of them for yourself. Once your books are ON the blockchain, no one will be able to take them down – not even us. NFTBooks are forever. " },
+    { "title": "What does the NFTBook Minter do exactly?", "content": "Our Minter is built to enable you to read NFTBooks in your web browser. You also have the freedom to do whatever you want with your NFTBooks; sell them on any NFT marketplace, give them away, burn them or just keep all of them for yourself. Immutably stored on IPFS and minted to the Polygon blockchain, NFTBooks are forever. " },
     { "title": "How do I connect to Matic Network for minting?", "content": "Go here for detailed instructions for adding Matic network to your Metamask: <a href='https://medium.com/stakingbits/setting-up-metamask-for-polygon-matic-network-838058f6d844' target='_blank'>https://medium.com/stakingbits/<br/>setting-up-metamask-for-polygon-matic-network-838058f6d844</a>" },
     { "title": "How will people read my book?", "content": "Your NFTBook will have both an interactive reader that shows up on your OpenSea listing AND a link to view the IPFS page with your book." },
     { "title": "Can anyone read my book?", "content": "Yes, all books minted will be open for anyone to read. No purchase required." },
