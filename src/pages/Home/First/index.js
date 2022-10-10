@@ -9,8 +9,8 @@ const First = () => {
 
     return (
         <div className={styles.div}>
-            <div className="h5 mt_200">Page DAO presents the</div>
-            <div className="h2 h2_sm mt_15">NFTBook Minter</div>
+            <div className="h5 mt_200">Cryptoversal Books and PageDAO present</div>
+            <div className="h2 h2_sm mt_15">Ye Olde Minting Press</div>
             <a href="#wallet">
                 <Button value="Create your NFT"
                     style={{ width: 228, height: 56, marginTop: 50, marginLeft: 'auto', marginRight: 'auto' }}
@@ -20,7 +20,7 @@ const First = () => {
             <div className="h4">Create your NFT </div>
             <div className={styles.text}>
                 <div className="body_1">
-                    The PageDAO ReadMe Books NFTBook Minter is designed to give PageDAO Members the opportunity to collaborate in the creation of an NFTBook Collection the DAO owns on OpenSea.io. 
+                    Ye Olde Wordler Village Minting Press is designed to give the Wordler Village community an opportunity to collaborate in the creation of a Web3 Literary Collection listed on OpenSea.io. 
                     <br></br>
                     1/3 of Royalties received by the DAO go to buy $PAGE. 
                     <br></br>
