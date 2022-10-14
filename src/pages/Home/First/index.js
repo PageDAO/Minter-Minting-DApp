@@ -9,8 +9,8 @@ const First = () => {
 
     return (
         <div className={styles.div}>
-            <div className="h5 mt_200">Page DAO presents the</div>
-            <div className="h2 h2_sm mt_15">NFTBook Minter</div>
+            <div className="h5 mt_200">Page DAO Presents the</div>
+            <div className="h2 h2_sm mt_15">Readme Books NFTBook Minter</div>
             <a href="#wallet">
                 <Button value="Create your NFT"
                     style={{ width: 228, height: 56, marginTop: 50, marginLeft: 'auto', marginRight: 'auto' }}
