@@ -65,7 +65,7 @@ const Activity = () => {
         if (comunityContract) {
             init()
         }
-    }, [comunityContract])
+    } )
 
     return (
         <div className={styles.div}>
