@@ -8,48 +8,6 @@ import { getImg, useResize } from '../../../utils/Helper'
 import Accordion from "../../../components/Accordion";
 import Roadmap from "../../../components/Roadmap";
 
-const roadmapQ1 = {
-    title: 'Q1, 2022',
-    img: 'calendar.png',
-    contents: [
-        {
-            img: 'map_lunched.png',
-            text: 'Launch NFTBook Minter on Polygon (Accessible to PageDAO Members ONLY)'
-        },
-        {
-            img: 'map_plan.png',
-            text: 'Fee-less minting'
-        },
-        {
-            img: 'map_plan.png',
-            text: 'Volume mining rewards for OpenSea transactions'
-        },
-        {
-            img: 'map_plan.png',
-            text: 'PAGE burning mechanic to Mint NFTBooks '
-        },
-        {
-            img: 'map_plan.png',
-            text: 'NFTBook Minter public launch'
-        }
-    ]
-}
-
-const roadmapQ2 = {
-    title: 'Q2, 2022',
-    img: 'calendar.png',
-    contents: [
-        {
-            img: 'map_plan.png',
-            text: 'Add NFTBook contract builder for Publishers to create their own collections on Page Network'
-        },
-        {
-            img: 'map_plan.png',
-            text: ' NFTBook Bazaar marketplace & PAGE token on Cosmos w/Evmos'
-        }
-    ]
-}
-
 const faqs = [
     { "title": "What does the NFTBook Minter do exactly?", "content": "Our Minter is built to enable you to read NFTBooks in your web browser. You also have the freedom to do whatever you want with your NFTBooks; sell them on any NFT marketplace, give them away, burn them or just keep all of them for yourself. Immutably stored on IPFS and minted to the Polygon blockchain, NFTBooks are forever. " },
     { "title": "How do I connect to Matic Network for minting?", "content": "Go here for detailed instructions for adding Matic network to your Metamask: <a href='https://medium.com/stakingbits/setting-up-metamask-for-polygon-matic-network-838058f6d844' target='_blank'>https://medium.com/stakingbits/<br/>setting-up-metamask-for-polygon-matic-network-838058f6d844</a>" },
