@@ -1,14 +1,13 @@
-import React from "react";
+import React from "react"
 
-import styles from './HistoryRow.module.scss';
-import { getImg } from '../../utils/Helper'
+import styles from './HistoryRow.module.scss'
 
 const HistoryRow = (props) => {
 
     return (
         <div className={styles.div}>
             <div className="d_flex align_items_center">
-                <img src={getImg('polygon.png')} alt="img" />
+                <img src='/assets/polygon.png' alt="img" />
                 <div className="ml_10 caption">
                     {props.obj.time}
                 </div>
@@ -31,7 +30,7 @@ const HistoryRow = (props) => {
                         <a href={props.obj.etherscanUrl} target="_blank" rel="noreferrer"
                             className="d_flex align_items_center">
                             <div className="subTitle_2 red50">Etherscan</div>
-                            <img src={getImg('open_new.png')} className="ml_10" alt="img" />
+                            <img src='/assets/open_new.png' className="ml_10" alt="img" />
                         </a>
                     </div>
                 </div>

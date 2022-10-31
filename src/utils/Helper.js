@@ -1,9 +1,5 @@
 import { useState, useEffect } from 'react'
 
-export const getImg = (img) => {
-    return require(`../assets/${img}`).default
-}
-
 export const useResize = () => {
     const [screenSize, setScreenSize] = useState({
         width: 0,
@@ -30,27 +26,27 @@ export const useResize = () => {
         }
     }, [])
 
-    return screenSize;
+    return screenSize
 }
 
 export const useDetectOutsideClick = (el, initialState) => {
-    const [isActive, setIsActive] = useState(initialState);
+    const [isActive, setIsActive] = useState(initialState)
 
     useEffect(() => {
         const handler = e => {
             if (el.current !== null && !el.current.contains(e.target)) {
-                setIsActive(!isActive);
+                setIsActive(!isActive)
             }
-        };
+        }
 
         if (isActive) {
-            window.addEventListener("click", handler);
+            window.addEventListener("click", handler)
         }
 
         return () => {
-            window.removeEventListener("click", handler);
-        };
-    }, [isActive, el]);
+            window.removeEventListener("click", handler)
+        }
+    }, [isActive, el])
 
-    return [isActive, setIsActive];
+    return [isActive, setIsActive]
 }

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 
-import { getImg, useResize } from "../../utils/Helper";
+import { useResize } from "../../utils/Helper"
 import styles from './SpinCard.module.scss'
 
 const SpinCard = (props) => {
@@ -19,12 +19,12 @@ const SpinCard = (props) => {
 
     return (
         <div className={styles.div}>
-            <img src={isMobile ? getImg('card_left_mob.png') : getImg('card_left.png')} alt="card_left" />
+            <img src={isMobile ? '/assets/card_left_mob.png' : '/assets/card_left.png'} alt="card_left" />
             <div className={styles.center}>
-                {isMobile && <img src={getImg('ticket_sm.png')} alt="ticket_sm" />}
+                {isMobile && <img src='/assets/ticket_sm.png' alt="ticket_sm" />}
                 <div className={styles.container}>
                     <div className={styles.dateTime}>
-                        {!isMobile && <img src={getImg('ticket_sm.png')} alt="ticket_sm" />}
+                        {!isMobile && <img src='/assets/ticket_sm.png' alt="ticket_sm" />}
                         <div>
                             <h5>{props.card.date}</h5>
                             <p>{props.card.time}</p>
@@ -37,7 +37,7 @@ const SpinCard = (props) => {
                     </div>
                 </div>
             </div>
-            <img src={isMobile ? getImg('card_right_mob.png') : getImg('card_right.png')} alt="card_right" />
+            <img src={isMobile ? '/assets/card_right_mob.png' : '/assets/card_right.png'} alt="card_right" />
         </div>
     )
 }

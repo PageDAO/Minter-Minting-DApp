@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import axios from "axios";
+import React, { useState, useEffect } from "react"
+import axios from "axios"
 
+import styles from './History.module.scss'
+import { useAppSelector } from '../../redux/hook'
 import api from '../../api'
-import styles from './History.module.scss';
 import { OPENSEA_URL, ETHERSCAN_URL } from "../../constant/env"
 import { accountAddress, uniftyContract, comunityContract } from "../../utils/web3/Wallet"
-import HistoryRow from "../../components/HistoryRow";
-import { useResize } from "../../utils/Helper";
-import NoHistory from "../../components/NoHistory";
+import { useResize } from "../../utils/Helper"
+import HistoryRow from "../../components/HistoryRow"
+import NoHistory from "../../components/NoHistory"
 
 const History = () => {
 
     const { isMobile } = useResize()
     const [histories, setHistories] = useState([])
-    const { hasMembership } = useSelector(state => state.membership)
+    const hasMembership = useAppSelector(state => state.membership.hasMembership)
 
     const getActivity = async (collection) => {
         let histories = []
@@ -28,13 +28,13 @@ const History = () => {
                 const result = await axios.get(metaDataUrl)
                 const metaData = result.data
                 let delta = (new Date() - new Date(parseInt(log.time) * 1000)) / 1000
-                var days = Math.floor(delta / 86400);
-                delta -= days * 86400;
-                var hours = Math.floor(delta / 3600) % 24;
-                delta -= hours * 3600;
-                var minutes = Math.floor(delta / 60) % 60;
-                delta -= minutes * 60;
-                var seconds = Math.floor(delta % 60);
+                var days = Math.floor(delta / 86400)
+                delta -= days * 86400
+                var hours = Math.floor(delta / 3600) % 24
+                delta -= hours * 3600
+                var minutes = Math.floor(delta / 60) % 60
+                delta -= minutes * 60
+                var seconds = Math.floor(delta % 60)
                 let time = ''
                 if (days > 0) {
                     time = days + 'days ' + hours + 'hrs ago'
@@ -67,7 +67,7 @@ const History = () => {
         if (comunityContract) {
             init()
         }
-    }, [comunityContract])
+    }, [comunityContract]) // eslint-disable-line
 
     return (
         <div className={styles.div}>

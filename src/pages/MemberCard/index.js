@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react"
+import axios from "axios"
 
+import styles from './MemberCard.module.scss'
 import api from '../../api'
 import { useResize } from '../../utils/Helper'
-import styles from './MemberCard.module.scss';
 import MemberCardRow from "../../components/MemberCardRow"
-// import Button from "../../components/Button"
 import { OPENSEA_URL, ETHERSCAN_URL } from "../../constant/env"
 import { accountAddress, uniftyContract, comunityContract } from "../../utils/web3/Wallet"
 
@@ -25,13 +24,13 @@ const MemberCard = () => {
             const result = await axios.get(metaDataUrl)
             const metaData = result.data
             let delta = (new Date() - new Date(parseInt(log.time) * 1000)) / 1000
-            var days = Math.floor(delta / 86400);
-            delta -= days * 86400;
-            var hours = Math.floor(delta / 3600) % 24;
-            delta -= hours * 3600;
-            var minutes = Math.floor(delta / 60) % 60;
-            delta -= minutes * 60;
-            var seconds = Math.floor(delta % 60);
+            var days = Math.floor(delta / 86400)
+            delta -= days * 86400
+            var hours = Math.floor(delta / 3600) % 24
+            delta -= hours * 3600
+            var minutes = Math.floor(delta / 60) % 60
+            delta -= minutes * 60
+            var seconds = Math.floor(delta % 60)
             let time = ''
             if (days > 0) {
                 time = days + 'days ' + hours + 'hrs ago'
@@ -65,7 +64,7 @@ const MemberCard = () => {
         if (comunityContract) {
             init()
         }
-    }, [comunityContract])
+    }, [comunityContract]) // eslint-disable-line
 
     return (
         <div className={styles.div}>

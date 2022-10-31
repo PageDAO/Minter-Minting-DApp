@@ -1,7 +1,7 @@
-import React from "react";
+import React from "react"
 
-import styles from './PdfViewer.module.scss';
-import PdfModal from '../../components/PdfModal';
+import styles from './PdfViewer.module.scss'
+import PdfModal from '../../components/PdfModal'
 
 const PdfViewer = (props) => {
     const id = props.location.pathname.split('/')[2]

@@ -1,10 +1,10 @@
-import React from "react";
+import React from "react"
 import { NavLink } from 'react-router-dom'
-import { useSelector } from "react-redux";
 
-import { getImg, useResize } from "../../utils/Helper";
-import styles from './Header.module.scss';
-import Button from "../Button";
+import { useAppSelector } from '../../redux/hook'
+import { useResize } from "../../utils/Helper"
+import styles from './Header.module.scss'
+import Button from "../Button"
 
 const headerStyle = {
     position: 'fixed',
@@ -17,11 +17,11 @@ const headerStyle = {
 const Header = (props) => {
 
     const { isMobile } = useResize()
-    const { hasMembership } = useSelector(state => state.membership)
-    let toggleImg = getImg('toggle.png')
+    const hasMembership = useAppSelector(state => state.membership.hasMembership)
+    let toggleImg = '/assets/toggle.png'
 
-    if (props.isOpenMenu) toggleImg = getImg('close.png')
-    else toggleImg = getImg('toggle.png')
+    if (props.isOpenMenu) toggleImg = '/assets/close.png'
+    else toggleImg = '/assets/toggle.png'
 
     const toggleMenu = () => {
         props.setIsOpenMenu(!props.isOpenMenu)
@@ -33,7 +33,7 @@ const Header = (props) => {
                 <div className={styles.div}>
                     <div>
                         <NavLink to="/">
-                            <img className={styles.logo} src={getImg('logo.png')} alt="logo" />
+                            <img className={styles.logo} src='/assets/logo.png' alt="logo" />
                             <div>
                                 {!isMobile && <div className="h5 ml_20">NFTBOOK BAZAAR</div>}
                                 <div className={styles.divider}></div>
@@ -52,7 +52,7 @@ const Header = (props) => {
                             value={props.account ? props.account.substr(0, 5) + '...' + props.account.substr(38, 42) : "Connect"}
                             style={{ width: 95, height: 32, fontSize: 12 }} white
                             onClick={props.handleSetAccount} />}
-                        {hasMembership && <img className={styles.daoMember} src={getImg('dao_member.png')} alt="img" />}
+                        {hasMembership && <img className={styles.daoMember} src='/assets/dao_member.png' alt="img" />}
                         {isMobile && <img src={toggleImg} onClick={toggleMenu} className={styles.toggle} alt="toggle" />}
                     </div>
                 </div>

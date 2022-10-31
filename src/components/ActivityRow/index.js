@@ -1,7 +1,7 @@
-import React from "react";
+import React from "react"
 
-import styles from './ActivityRow.module.scss';
-import { getImg, useResize } from '../../utils/Helper'
+import styles from './ActivityRow.module.scss'
+import { useResize } from '../../utils/Helper'
 
 const ActivityRow = (props) => {
 
@@ -28,7 +28,7 @@ const ActivityRow = (props) => {
                 <a href={props.obj.etherscanUrl} target="_blank" rel="noreferrer"
                     className="d_flex align_items_center" style={{ width: '25%' }}>
                     <div className="subTitle_2 red50">{props.obj.time}</div>
-                    <img src={getImg('open_new.png')} className="ml_10" alt="img" />
+                    <img src="/assets/open_new.png" className="ml_10" alt="img" />
                 </a>
             </div>}
             {isMobile && <div style={{ width: '100%' }}>
@@ -50,7 +50,7 @@ const ActivityRow = (props) => {
                     <a href={props.obj.etherscanUrl} target="_blank" rel="noreferrer"
                         className="d_flex align_items_center">
                         <div className="subTitle_2 red50">{props.obj.time}</div>
-                        <img src={getImg('open_new.png')} className="ml_10" alt="img" />
+                        <img src='/assets/open_new.png' className="ml_10" alt="img" />
                     </a>
                 </div>
             </div>}

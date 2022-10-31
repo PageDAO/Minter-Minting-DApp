@@ -1,12 +1,12 @@
 import React, { useState } from "react"
-import { useSelector } from "react-redux"
 import wait from 'wait'
-import api from '../../../api'
 
 import styles from './Second.module.scss'
-import { chainId, accountAddress, comunityContract, comunityContract2, web3given } from "../../../utils/web3/Wallet"
+import api from '../../../api'
+import { useAppSelector } from '../../../redux/hook'
+import { chainId, accountAddress, comunityContract2, web3given } from "../../../utils/web3/Wallet"
 import { CHAIN_ID, OPENSEA_URL, ETHERSCAN_URL } from "../../../constant/env"
-import { getImg, useResize } from "../../../utils/Helper"
+import { useResize } from "../../../utils/Helper"
 import Button from "../../../components/Button"
 import CreateNFT from "../../../components/CreatNFT"
 import PdfModal from "../../../components/PdfModal"
@@ -15,7 +15,7 @@ import Progress from "../../../components/Progress"
 const Second = (props) => {
 
     const { isMobile } = useResize()
-    const { hasMembership } = useSelector(state => state.membership)
+    const hasMembership = useAppSelector(state => state.membership.hasMembership)
     const [minting, setMinting] = useState(false)
     const [minted, setMinted] = useState(false)
     const [activeProgressModal, setActiveProgressModal] = useState(false)
@@ -89,7 +89,7 @@ const Second = (props) => {
         } else if (qty > 1000) {
             alert('Max number exceeds')
         }
-         else if (checkNet()) {
+        else if (checkNet()) {
             setMinting(true)
             setActiveProgressModal(true)
             const result = await api.nft.create(
@@ -115,7 +115,7 @@ const Second = (props) => {
             comunityContract2.methods.mint(qty, qty, `${metadataURL}`).send({
                 from: accountAddress,
                 gasPrice: curGasPrice,
-                gas: estimatedGas*5
+                gas: estimatedGas * 5
             }).on('confirmation', async function (confirmationNumber, receipt) {
                 const transactionHash = await receipt.transactionHash
                 await setEtherscanUrl(`${ETHERSCAN_URL}/${transactionHash}`)
@@ -130,18 +130,18 @@ const Second = (props) => {
                         setMinting(false)
                         setMinted(true)
                     })
-                    }).on('error', function (error, receipt) { // If the transaction was rejected by the network with a receipt, the second parameter will be the receipt.
-                        console.log('error in mint:', error)
-                        setMinting(false)
-                        setActiveProgressModal(false)
-                        setMinted(false)
-                    });
+            }).on('error', function (error, receipt) { // If the transaction was rejected by the network with a receipt, the second parameter will be the receipt.
+                console.log('error in mint:', error)
+                setMinting(false)
+                setActiveProgressModal(false)
+                setMinted(false)
+            });
         }
     }
 
     return (
         <div id="wallet">
-            {!hasMembership && <div className={styles.div} style={!isMobile ? { backgroundImage: `url(${getImg('grid_bg.png')})` } : { backgroundImage: `url(${getImg('grid_bg_mob.png')})` }}>
+            {!hasMembership && <div className={styles.div} style={!isMobile ? { backgroundImage: `url('/assets/grid_bg.png')` } : { backgroundImage: `url('/assets/grid_bg_mob.png')` }}>
                 {!props.account && <div className={styles.wallet}>
                     <div className="text_center">
                         <div className="body_2 white mb_30">Please connect your wallet to get started.</div>
@@ -158,14 +158,14 @@ const Second = (props) => {
                         <br /><br />
                         Stay tuned for #announcements in the <a href="https://discord.gg/zpZTm38ZHC" className="red50" target="_blank" rel="noreferrer">PageDAO discord</a> as we continue to roll out more news. 🙂
                     </div>
-                    <img src={getImg('no_member.png')} className="mt_15 mb_25" alt="img" />
+                    <img src='/assets/no_member.png' className="mt_15 mb_25" alt="img" />
                     <div className={styles.footer}>
                         <div className="body_2">Network: Polygon</div>
                         <div className={styles.divider}></div>
                         <a href="https://membership.nftbookbazaar.com"
                             className="d_flex align_items_center" target="_blank" rel="noreferrer">
                             <div className="body_2 red50">Mint yours now!</div>
-                            <img src={getImg('open_new.png')} className="ml_20" alt="img" />
+                            <img src='/assets/open_new.png' className="ml_20" alt="img" />
                         </a>
                     </div>
                 </div>}
@@ -194,7 +194,7 @@ const Second = (props) => {
                 <div className={styles.pdf_container}>
                     <div className="d_flex align_items_center justify_content_between mb_20">
                         <div className="h6">PDF preview</div>
-                        <img src={getImg('close_modal.png')} alt="img" onClick={() => { setActivePdfModal(false); setMinted(false) }} />
+                        <img src='/assets/close_modal.png' alt="img" onClick={() => { setActivePdfModal(false); setMinted(false) }} />
                     </div>
                     <PdfModal url={pdfUrl} />
                 </div>
@@ -211,8 +211,8 @@ const Second = (props) => {
                             <div className={styles.success}>
                                 <div className={styles.success_container}>
                                     <div></div>
-                                    <img className={styles.main} src={getImg('success.png')} alt="img" />
-                                    <img className={styles.close} src={getImg('close_modal.png')} alt="img" onClick={() => { setMinted(false); setActiveProgressModal(false) }} />
+                                    <img className={styles.main} src='/assets/success.png' alt="img" />
+                                    <img className={styles.close} src='/assets/close_modal.png' alt="img" onClick={() => { setMinted(false); setActiveProgressModal(false) }} />
                                 </div>
                                 <div className="h6">Success!</div>
                             </div>
@@ -220,14 +220,14 @@ const Second = (props) => {
                                 <a href={openseaUrl} target="_blank" rel="noreferrer"
                                     className="d_flex align_items_center">
                                     <div className="body_2 red50 mr_20">Opensea</div>
-                                    <img src={getImg('open_new.png')} alt="img" />
+                                    <img src='/assets/open_new.png' alt="img" />
                                 </a>
                                 <div className={styles.modal_divider}>
                                 </div>
                                 <a href={etherscanUrl} target="_blank" rel="noreferrer"
                                     className="d_flex align_items_center">
                                     <div className="body_2 red50 mr_20">Etherscan</div>
-                                    <img src={getImg('open_new.png')} alt="img" />
+                                    <img src='/assets/open_new.png' alt="img" />
                                 </a>
                             </div>
                         </div>}
