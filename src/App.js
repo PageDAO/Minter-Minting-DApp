@@ -1,10 +1,10 @@
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch } from 'react-router-dom'
 
-import PrivateRoute from './router/PrivateRoute';
-import Home from './pages/Home';
+import PrivateRoute from './router/PrivateRoute'
+import Home from './pages/Home'
 import Activity from './pages/Activity'
 import History from './pages/History'
-import MemberCard from './pages/MemberCard';
+import MemberCard from './pages/MemberCard'
 import PdfViewer from './pages/PdfViewer'
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
         <PrivateRoute path="/*" component={() => <div style={{ padding: 30 }}><h2> Page Not Found </h2></div>} />
       </Switch>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App

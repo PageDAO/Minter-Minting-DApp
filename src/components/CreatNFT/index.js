@@ -1,9 +1,9 @@
-import React from "react";
-import { MultiSelectComponent, DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
+import React from "react"
+import { MultiSelectComponent, DropDownListComponent } from '@syncfusion/ej2-react-dropdowns'
 
 import styles from './CreateNFT.module.scss'
 import './Select.css'
-import Button from "../Button";
+import Button from "../Button"
 
 const genreData = [
     { "id": "Art", "title": "Art" },
@@ -211,7 +211,7 @@ const CreateNFT = (props) => {
                     style={{ width: '100%', height: 56, marginTop: 25 }} />
             </form>
         </div>
-    );
+    )
 }
 
 export default CreateNFT

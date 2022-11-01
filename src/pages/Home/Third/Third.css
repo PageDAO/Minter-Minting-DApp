@@ -22,11 +22,11 @@
 }
 
 .alice-carousel__prev-btn [data-area]::after {
-    content: url('../../../assets/arrow-prev.png');
+    content: '/assets/arrow-prev.png';
 }
 
 .alice-carousel__next-btn [data-area]::after {
-    content: url('../../../assets/arrow-next.png');
+    content: '/assets/arrow-next.png';
 }
 
 @media (max-width: 768px) {

@@ -5,11 +5,11 @@ import styles from './PdfModal.module.scss'
 const PdfModal = (props) => {
 
     useEffect(() => {
-        const script = document.createElement("script");
-        script.src = "/dflip/js/dflip.min.js";
-        script.async = true;
+        const script = document.createElement("script")
+        script.src = "/dflip/js/dflip.min.js"
+        script.async = true
 
-        document.body.appendChild(script);
+        document.body.appendChild(script)
     }, [])
 
     const height = props.modal ? { height: '552px !important' } : { height: 'calc(100vh - 120px) !important' }

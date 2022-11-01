@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react"
+import axios from "axios"
 
+import styles from './Activity.module.scss'
 import api from '../../api'
-import { useResize } from '../../utils/Helper'
-import styles from './Activity.module.scss';
-import ActivityRow from "../../components/ActivityRow"
-// import Button from "../../components/Button"
 import { OPENSEA_URL, ETHERSCAN_URL } from "../../constant/env"
+import { useResize } from '../../utils/Helper'
 import { accountAddress, uniftyContract, comunityContract } from "../../utils/web3/Wallet"
+import ActivityRow from "../../components/ActivityRow"
 
 const Activity = () => {
 
@@ -19,19 +18,19 @@ const Activity = () => {
         const openseaUrl = `${OPENSEA_URL}/${collection}`
         const logs = await api.nft.getLog()
 
-        await Promise.all(logs.map(async log => {
+        await Promise.all(logs?.map(async log => {
             const res = await uniftyContract.methods.uri(log.topics[1]).call()
             const metaDataUrl = res
             const result = await axios.get(metaDataUrl)
             const metaData = result.data
             let delta = (new Date() - new Date(parseInt(log.time) * 1000)) / 1000
-            var days = Math.floor(delta / 86400);
-            delta -= days * 86400;
-            var hours = Math.floor(delta / 3600) % 24;
-            delta -= hours * 3600;
-            var minutes = Math.floor(delta / 60) % 60;
-            delta -= minutes * 60;
-            var seconds = Math.floor(delta % 60);
+            var days = Math.floor(delta / 86400)
+            delta -= days * 86400
+            var hours = Math.floor(delta / 3600) % 24
+            delta -= hours * 3600
+            var minutes = Math.floor(delta / 60) % 60
+            delta -= minutes * 60
+            var seconds = Math.floor(delta % 60)
             let time = ''
             if (days > 0) {
                 time = days + 'days ' + hours + 'hrs ago'
@@ -65,7 +64,7 @@ const Activity = () => {
         if (comunityContract) {
             init()
         }
-    } )
+    })
 
     return (
         <div className={styles.div}>

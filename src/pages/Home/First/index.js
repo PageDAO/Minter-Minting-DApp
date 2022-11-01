@@ -1,9 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from "react"
+import { Link } from "react-router-dom"
 
-import styles from './First.module.scss';
-import { getImg } from "../../../utils/Helper";
-import Button from "../../../components/Button";
+import styles from './First.module.scss'
+import Button from "../../../components/Button"
 
 const First = () => {
 
@@ -16,13 +15,13 @@ const First = () => {
                     style={{ width: 228, height: 56, marginTop: 50, marginLeft: 'auto', marginRight: 'auto' }}
                     white />
             </a>
-            <img className={styles.pageDao} src={getImg('page_dao.png')} alt="page_dao" />
+            <img className={styles.pageDao} src='/assets/page_dao.png' alt="page_dao" />
             <div className="h4">Create your NFT </div>
             <div className={styles.text}>
                 <div className="body_1">
-                    The PageDAO ReadMe Books NFTBook Minter is designed to give PageDAO Members the opportunity to collaborate in the creation of an NFTBook Collection the DAO owns on OpenSea.io. 
+                    The PageDAO ReadMe Books NFTBook Minter is designed to give PageDAO Members the opportunity to collaborate in the creation of an NFTBook Collection the DAO owns on OpenSea.io.
                     <br></br>
-                    1/3 of Royalties received by the DAO go to buy $PAGE. 
+                    1/3 of Royalties received by the DAO go to buy $PAGE.
                     <br></br>
                     *This open source technology is in beta, and does not like large files.
                 </div>

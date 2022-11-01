@@ -1,15 +1,12 @@
-import React from "react";
-import AliceCarousel from 'react-alice-carousel';
-import 'react-alice-carousel/lib/alice-carousel.css';
+import React from "react"
+import 'react-alice-carousel/lib/alice-carousel.css'
 
 import styles from './Third.module.scss'
 import './Third.css'
-import { getImg, useResize } from '../../../utils/Helper'
-import Accordion from "../../../components/Accordion";
-import Roadmap from "../../../components/Roadmap";
+import Accordion from "../../../components/Accordion"
 
 const faqs = [
-    { "title": "What does the NFTBook Minter do exactly?", "content": "Our Minter is built to enable you to read NFTBooks in your web browser. You also have the freedom to do whatever you want with your NFTBooks; sell them on any NFT marketplace, give them away, burn them or just keep all of them for yourself. Immutably stored on IPFS and minted to the Polygon blockchain, NFTBooks are forever. " },
+    { "title": "What does the NFTBook Minter do exactly?", "content": "Our Minter is built to enable you to read NFTBooks in your web browser. You also have the freedom to do whatever you want with your NFTBooks sell them on any NFT marketplace, give them away, burn them or just keep all of them for yourself. Immutably stored on IPFS and minted to the Polygon blockchain, NFTBooks are forever. " },
     { "title": "How do I connect to Matic Network for minting?", "content": "Go here for detailed instructions for adding Matic network to your Metamask: <a href='https://medium.com/stakingbits/setting-up-metamask-for-polygon-matic-network-838058f6d844' target='_blank'>https://medium.com/stakingbits/<br/>setting-up-metamask-for-polygon-matic-network-838058f6d844</a>" },
     { "title": "How will people read my book?", "content": "Your NFTBook will have both an interactive reader that shows up on your OpenSea listing AND a link to view the IPFS page with your book." },
     { "title": "Can anyone read my book?", "content": "Yes, all books minted will be open for anyone to read. No purchase required." },
@@ -19,21 +16,11 @@ const faqs = [
     { "title": "How can I get $MATIC to pay for gas to mint?", "content": "You will need $MATIC bridged over to Polygon network to pay for gas fees. You can follow the guide here for help through that process: <a href='https://medium.com/prepo/setting-up-metamask-and-getting-eth-matic-on-polygon-step-by-step-guide-fd55147a0f05' target='_blank'>https://medium.com/prepo/setting-up-metamask-and-getting-eth-matic-on-polygon-step-by-step-guide-fd55147a0f05</a>." }
 ]
 
-const handleDragStart = (e) => e.preventDefault();
-
-const items = [
-    <img src={getImg('author_1.png')} alt="img" onDragStart={handleDragStart} role="presentation" />,
-    <img src={getImg('author_2.png')} alt="img" onDragStart={handleDragStart} role="presentation" />,
-    <img src={getImg('author_3.png')} alt="img" onDragStart={handleDragStart} role="presentation" />,
-    <img src={getImg('author_4.png')} alt="img" onDragStart={handleDragStart} role="presentation" />
-];
-
 const Third = () => {
 
-    const { isMobile } = useResize()
     return (
         <div className={styles.div}>
-            
+
             <div className={styles.faq}>
                 <div>
                     <div className="h3 mb_50">FAQ</div>
