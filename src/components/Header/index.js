@@ -41,20 +41,7 @@ const Header = (props) => {
                             </div>
                         </NavLink>
                     </div>
-                    <div>
-                        {!isMobile && <NavLink to="/activity" activeClassName={styles.active} className="subTitle_2 mr_50">&nbsp;Activity&nbsp;</NavLink>}
-                        {!isMobile && props.account && <NavLink to="/history" activeClassName={styles.active} className="subTitle_2 mr_50">&nbsp;My History&nbsp;</NavLink>}
-                        {!isMobile && <Button
-                            value={props.account ? props.account.substr(0, 5) + '...' + props.account.substr(38, 42) : "Connect"}
-                            style={{ width: 140, height: 56 }} white
-                            onClick={props.handleSetAccount} />}
-                        {isMobile && <Button
-                            value={props.account ? props.account.substr(0, 5) + '...' + props.account.substr(38, 42) : "Connect"}
-                            style={{ width: 95, height: 32, fontSize: 12 }} white
-                            onClick={props.handleSetAccount} />}
-                        {hasMembership && <img className={styles.daoMember} src='/assets/dao_member.png' alt="img" />}
-                        {isMobile && <img src={toggleImg} onClick={toggleMenu} className={styles.toggle} alt="toggle" />}
-                    </div>
+
                 </div>
             </div>
             {props.isOpenMenu && <div className={styles.menu}>
