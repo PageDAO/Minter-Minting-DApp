@@ -18,6 +18,7 @@ const genreData = [
     { "id": "Environment & Nature", "title": "Environment & Nature" },
     { "id": "Erotica", "title": "Erotica" },
     { "id": "Fantasy", "title": "Fantasy" },
+    { "id": "PageDAO Governance", "title": "PageDAO Governance" },
     { "id": "Health", "title": "Health" },
     { "id": "Historical Fiction", "title": "Historical Fiction" },
     { "id": "History", "title": "History" },
