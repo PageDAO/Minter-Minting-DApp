@@ -33,9 +33,8 @@ const Header = (props) => {
                 <div className={styles.div}>
                     <div>
                         <NavLink to="/">
-                            <img className={styles.logo} src='/assets/logo.png' alt="logo" />
                             <div>
-                                {!isMobile && <div className="h5 ml_20">NFTBOOK BAZAAR</div>}
+                                {!isMobile && <div className="h5 ml_20">NFT Educational Books</div>}
                                 <div className={styles.divider}></div>
                                 <div className="h6">Mint</div>
                             </div>

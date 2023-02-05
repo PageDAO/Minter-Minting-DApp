@@ -141,7 +141,7 @@ const Second = (props) => {
 
     return (
         <div id="wallet">
-            {!hasMembership && <div className={styles.div} style={!isMobile ? { backgroundImage: `url('/assets/grid_bg.png')` } : { backgroundImage: `url('/assets/grid_bg_mob.png')` }}>
+            {!hasMembership && <div className={styles.div} >
                 {!props.account && <div className={styles.wallet}>
                     <div className="text_center">
                         <div className="body_2 white mb_30">Please connect your wallet to get started.</div>
