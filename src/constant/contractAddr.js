@@ -28,9 +28,9 @@ switch (NET) {
         Membership721ContractAddr = '0xd9ff4b61817ff3246d012ff8918e3e8b8dfa5a39'
         break;
 
-//todo: deploy community mint control to goerli
+//todo: deploy community mint control to goerli - now test
     case 'goerli':
-        ComunityContractAddr = ''
+        ComunityContractAddr = '0x2925411a1d2067b564ee03ce772ebd43c8cb5b99'
         UniftyContractAddr = '0x7f2350768d21ba4E2449beEe05535b1fE7D0B700'
         MembershipContractAddr = ''
         Membership721ContractAddr = '0x836f84E121643b90c6aFf9f4D84561b0Ac69423c'
