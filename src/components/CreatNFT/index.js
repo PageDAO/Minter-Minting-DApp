@@ -3953,7 +3953,7 @@ const CreateNFT = (props) => {
                     </div>
                 </div>
                 <div className="caption grey60 mt_5 ml_10">
-                    Please use a standard letter-size PDF of 8.5x11" with 1" margins and a font size of 12pt or greater. The first page should be your book cover.
+                    The first page should be your book cover.
                 </div>
                 <div className={styles.row}>
                     <div className="caption grey60"> Book title </div>

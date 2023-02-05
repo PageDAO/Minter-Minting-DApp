@@ -1,7 +1,8 @@
 const ALCHEMY_PRC_URL = "https://polygon-mainnet.g.alchemy.com/v2/f5LpbJ2eyEurydCMDameDYSJmLa8pPyS"
-const NET = 'polygon' // polygon, rinkeby, mumbai
+const NET = 'goerli' // polygon, rinkeby, mumbai, goerli
 // const API_URL = 'http://192.168.104.27:3001/api'
 // const API_URL = 'https://nftbb-minter-backend.herokuapp.com/api'
+// todo: change this to dev server
 const API_URL = 'https://apiv2.nftbookbazaar.com/api'
 
 let TOKEN_ID = 0
@@ -34,6 +35,15 @@ switch (NET) {
     OPENSEA_URL = 'https://opensea.io/assets/matic'
     TOKEN_ID = "111515117730074772965449733806193829182550002799402836500696112828456993030244"
     break;
+
+  case 'goerli':
+    CHAIN_ID = 5
+    CHAIN_ID_HEX = '0x5'
+    ETHERSCAN_URL = 'https://goerli.etherscan.io/'
+    OPENSEA_URL = 'https://testnets.opensea.io/assets/goerli'
+    TOKEN_ID = ''
+    break;
+
   default:
     break;
 }

@@ -5,6 +5,107 @@
 		"type": "constructor"
 	},
 	{
+		"inputs": [],
+		"name": "AddressNotAllowlisted",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "AllowlistMintClosed",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "CannotBeNullAddress",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "CapExceeded",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "DuplicateTeamAddress",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "ERC20InsufficientAllowance",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "ERC20InsufficientBalance",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "ERC20TokenNotApproved",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "ERC20TransferFailed",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "ERC721RestrictedApprovalAddressRestricted",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "InvalidPayment",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "InvalidTeamAddress",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "MintZeroQuantity",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "NoStateChange",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "OnlyERC20MintingEnabled",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "operator",
+				"type": "address"
+			}
+		],
+		"name": "OperatorNotAllowed",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "PublicMintClosed",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "TransactionCapExceeded",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "ValueCannotBeZero",
+		"type": "error"
+	},
+	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -58,88 +159,19 @@
 		"anonymous": false,
 		"inputs": [
 			{
-				"indexed": false,
+				"indexed": true,
 				"internalType": "address",
-				"name": "account",
+				"name": "previousOwner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "newOwner",
 				"type": "address"
 			}
 		],
-		"name": "Paused",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "bytes32",
-				"name": "role",
-				"type": "bytes32"
-			},
-			{
-				"indexed": true,
-				"internalType": "bytes32",
-				"name": "previousAdminRole",
-				"type": "bytes32"
-			},
-			{
-				"indexed": true,
-				"internalType": "bytes32",
-				"name": "newAdminRole",
-				"type": "bytes32"
-			}
-		],
-		"name": "RoleAdminChanged",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "bytes32",
-				"name": "role",
-				"type": "bytes32"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "account",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "sender",
-				"type": "address"
-			}
-		],
-		"name": "RoleGranted",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "bytes32",
-				"name": "role",
-				"type": "bytes32"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "account",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "sender",
-				"type": "address"
-			}
-		],
-		"name": "RoleRevoked",
+		"name": "OwnershipTransferred",
 		"type": "event"
 	},
 	{
@@ -168,106 +200,89 @@
 		"type": "event"
 	},
 	{
-		"anonymous": false,
+		"inputs": [],
+		"name": "CONTRACT_VERSION",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "PRICE",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "_baseTokenExtension",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "_baseTokenURI",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
-				"indexed": false,
 				"internalType": "address",
-				"name": "account",
+				"name": "_erc20TokenContract",
+				"type": "address"
+			},
+			{
+				"internalType": "bool",
+				"name": "_isActive",
+				"type": "bool"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_chargeAmountInTokens",
+				"type": "uint256"
+			}
+		],
+		"name": "addOrUpdateERC20ContractAsPayment",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_address",
 				"type": "address"
 			}
 		],
-		"name": "Unpaused",
-		"type": "event"
-	},
-	{
-		"inputs": [],
-		"name": "DEFAULT_ADMIN_ROLE",
-		"outputs": [
-			{
-				"internalType": "bytes32",
-				"name": "",
-				"type": "bytes32"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "MINTER_ROLE",
-		"outputs": [
-			{
-				"internalType": "bytes32",
-				"name": "",
-				"type": "bytes32"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "MintDiamond",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "MintSilver",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "PAUSER_ROLE",
-		"outputs": [
-			{
-				"internalType": "bytes32",
-				"name": "",
-				"type": "bytes32"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "_diamondSupply",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "_silverSupply",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address[]",
-				"name": "toAddresses",
-				"type": "address[]"
-			}
-		],
-		"name": "airDropWippy",
+		"name": "addToTeam",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -310,26 +325,145 @@
 		"type": "function"
 	},
 	{
+		"inputs": [],
+		"name": "baseTokenURI",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
+				"internalType": "address",
+				"name": "_erc20TokenContract",
+				"type": "address"
+			}
+		],
+		"name": "chargeAmountForERC20",
+		"outputs": [
+			{
 				"internalType": "uint256",
-				"name": "tokenId",
+				"name": "",
 				"type": "uint256"
 			}
 		],
-		"name": "burn",
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "closeAllowlistMint",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
 		"inputs": [],
-		"name": "diamondMaxSupply",
+		"name": "collectionSize",
 		"outputs": [
 			{
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "contractURI",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "pure",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "currentTokenId",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "disableAllowlistOnlyMode",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_erc20TokenContract",
+				"type": "address"
+			}
+		],
+		"name": "disableERC20ContractAsPayment",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "disableERC20OnlyMinting",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "enableAllowlistOnlyMode",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_erc20TokenContract",
+				"type": "address"
+			}
+		],
+		"name": "enableERC20ContractAsPayment",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "enableERC20OnlyMinting",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "erc20Payable",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
 			}
 		],
 		"stateMutability": "view",
@@ -356,7 +490,7 @@
 	},
 	{
 		"inputs": [],
-		"name": "getDiamondSupply",
+		"name": "getNextTokenId",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -370,25 +504,12 @@
 	{
 		"inputs": [
 			{
-				"internalType": "bytes32",
-				"name": "role",
-				"type": "bytes32"
+				"internalType": "uint256",
+				"name": "_count",
+				"type": "uint256"
 			}
 		],
-		"name": "getRoleAdmin",
-		"outputs": [
-			{
-				"internalType": "bytes32",
-				"name": "",
-				"type": "bytes32"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "getSilverSupply",
+		"name": "getPrice",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -402,35 +523,36 @@
 	{
 		"inputs": [
 			{
-				"internalType": "bytes32",
-				"name": "role",
-				"type": "bytes32"
-			},
-			{
 				"internalType": "address",
-				"name": "account",
+				"name": "_address",
 				"type": "address"
 			}
 		],
-		"name": "grantRole",
-		"outputs": [],
-		"stateMutability": "nonpayable",
+		"name": "inTeam",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
 		"inputs": [
 			{
-				"internalType": "bytes32",
-				"name": "role",
-				"type": "bytes32"
+				"internalType": "address",
+				"name": "_to",
+				"type": "address"
 			},
 			{
-				"internalType": "address",
-				"name": "account",
-				"type": "address"
+				"internalType": "bytes32[]",
+				"name": "_merkleProof",
+				"type": "bytes32[]"
 			}
 		],
-		"name": "hasRole",
+		"name": "isAllowlisted",
 		"outputs": [
 			{
 				"internalType": "bool",
@@ -466,6 +588,174 @@
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_erc20TokenContract",
+				"type": "address"
+			}
+		],
+		"name": "isApprovedForERC20Payments",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "maxBatchSize",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "merkleRoot",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_qty",
+				"type": "uint256"
+			}
+		],
+		"name": "mintToAdminV2",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_amount",
+				"type": "uint256"
+			}
+		],
+		"name": "mintToMultiple",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_amount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes32[]",
+				"name": "_merkleProof",
+				"type": "bytes32[]"
+			}
+		],
+		"name": "mintToMultipleAL",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_amount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "_erc20TokenContract",
+				"type": "address"
+			}
+		],
+		"name": "mintToMultipleERC20",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_amount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes32[]",
+				"name": "_merkleProof",
+				"type": "bytes32[]"
+			},
+			{
+				"internalType": "address",
+				"name": "_erc20TokenContract",
+				"type": "address"
+			}
+		],
+		"name": "mintToMultipleERC20AL",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "mintingOpen",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [],
 		"name": "name",
 		"outputs": [
@@ -473,6 +763,72 @@
 				"internalType": "string",
 				"name": "",
 				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "nextOwnerToExplicitlySet",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "onlyAllowlistMode",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "onlyERC20MintingMode",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "openAllowlistMint",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "openMinting",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
 			}
 		],
 		"stateMutability": "view",
@@ -499,19 +855,12 @@
 	},
 	{
 		"inputs": [],
-		"name": "pause",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "paused",
+		"name": "payableAddressCount",
 		"outputs": [
 			{
-				"internalType": "bool",
+				"internalType": "uint256",
 				"name": "",
-				"type": "bool"
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -520,17 +869,57 @@
 	{
 		"inputs": [
 			{
-				"internalType": "bytes32",
-				"name": "role",
-				"type": "bytes32"
-			},
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "payableAddresses",
+		"outputs": [
 			{
 				"internalType": "address",
-				"name": "account",
+				"name": "",
 				"type": "address"
 			}
 		],
-		"name": "renounceRole",
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "payableFees",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_address",
+				"type": "address"
+			}
+		],
+		"name": "removeFromTeam",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "renounceOwnership",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -538,37 +927,20 @@
 	{
 		"inputs": [
 			{
-				"internalType": "bytes32",
-				"name": "role",
-				"type": "bytes32"
-			},
-			{
 				"internalType": "address",
-				"name": "account",
+				"name": "",
 				"type": "address"
 			}
 		],
-		"name": "revokeRole",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
+		"name": "restrictedApprovalAddresses",
+		"outputs": [
 			{
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "uri",
-				"type": "string"
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
 			}
 		],
-		"name": "safeMint",
-		"outputs": [],
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -641,13 +1013,116 @@
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "silverMaxSupply",
-		"outputs": [
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_address",
+				"type": "address"
+			},
+			{
+				"internalType": "bool",
+				"name": "_isRestricted",
+				"type": "bool"
+			}
+		],
+		"name": "setApprovalRestriction",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "baseExtension",
+				"type": "string"
+			}
+		],
+		"name": "setBaseTokenExtension",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "baseURI",
+				"type": "string"
+			}
+		],
+		"name": "setBaseURI",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_newErc20Payable",
+				"type": "address"
+			}
+		],
+		"name": "setERC20PayableAddress",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "_newMaxMint",
 				"type": "uint256"
+			}
+		],
+		"name": "setMaxMint",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_feeInWei",
+				"type": "uint256"
+			}
+		],
+		"name": "setPrice",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bool",
+				"name": "_newStatus",
+				"type": "bool"
+			}
+		],
+		"name": "setStrictPricing",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "stopMinting",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "strictPricing",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
 			}
 		],
 		"stateMutability": "view",
@@ -749,19 +1224,6 @@
 	},
 	{
 		"inputs": [],
-		"name": "totalMaxSupply",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "totalSupply",
 		"outputs": [
 			{
@@ -797,41 +1259,53 @@
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "unpause",
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "_newMerkleRoot",
+				"type": "bytes32"
+			}
+		],
+		"name": "updateMerkleRoot",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
 		"inputs": [],
-		"name": "wippyMaxSupply",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
+		"name": "withdrawAll",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "_destination",
+				"name": "_tokenContract",
 				"type": "address"
-			}
-		],
-		"name": "withdraw",
-		"outputs": [
+			},
 			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
+				"internalType": "uint256",
+				"name": "_amountToWithdraw",
+				"type": "uint256"
 			}
 		],
+		"name": "withdrawERC20",
+		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	}

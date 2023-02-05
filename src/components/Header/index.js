@@ -34,7 +34,7 @@ const Header = (props) => {
                     <div>
                         <NavLink to="/">
                             <div>
-                                {!isMobile && <div className="h5 ml_20">NFT Educational Books</div>}
+                                {!isMobile && <div className="h5 ml_20">NFT University Press</div>}
                                 <div className={styles.divider}></div>
                                 <div className="h6">Mint</div>
                             </div>

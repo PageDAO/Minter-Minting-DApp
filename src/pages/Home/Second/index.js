@@ -6,7 +6,7 @@ import api from '../../../api'
 import { useAppSelector } from '../../../redux/hook'
 import { chainId, accountAddress, comunityContract2, web3given } from "../../../utils/web3/Wallet"
 import { CHAIN_ID, OPENSEA_URL, ETHERSCAN_URL } from "../../../constant/env"
-import { useResize } from "../../../utils/Helper"
+//import { useResize } from "../../../utils/Helper"
 import Button from "../../../components/Button"
 import CreateNFT from "../../../components/CreatNFT"
 import PdfModal from "../../../components/PdfModal"
@@ -14,7 +14,7 @@ import Progress from "../../../components/Progress"
 
 const Second = (props) => {
 
-    const { isMobile } = useResize()
+    //const { isMobile } = useResize()
     const hasMembership = useAppSelector(state => state.membership.hasMembership)
     const [minting, setMinting] = useState(false)
     const [minted, setMinted] = useState(false)
@@ -149,7 +149,7 @@ const Second = (props) => {
                             style={{ width: 432, height: 56, color: "var(--red50)", fontSize: 18 }}
                             onClick={props.handleSetAccount}
                             white />
-                        <div className="caption white mt_15">PageDAO Membership card required to mint.</div>
+                        <div className="caption white mt_15">Membership card required to mint.</div>
                     </div>
                 </div>}
                 {props.account && <div className={styles.noMember}>

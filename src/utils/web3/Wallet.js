@@ -18,6 +18,7 @@ export let accountAddress = undefined
 export let web3Modal = undefined
 export let chainId = null
 
+// todo: this should use the RPC for the currently selected chain, in my case Goerli
 const web3http = new Web3(new Web3.providers.HttpProvider("https://polygon-rpc.com/"))
 export let comunityContract = new web3http.eth.Contract(MainABI, ComunityContractAddr)
 export let membershipContract = new web3http.eth.Contract(MembershipABI, MembershipContractAddr)
