@@ -78,8 +78,6 @@ const Second = (props) => {
             alert('Please input description')
         } else if (imageName === 'No file chosen') {
             alert('Please input banner image')
-        } else if (artist === '') {
-            alert('Please input artist')
         } else if (genre === '') {
             alert('Please select genre')
         } else if (language === '') {
