@@ -3,7 +3,8 @@ const NET = 'goerli' // polygon, rinkeby, mumbai, goerli
 // const API_URL = 'http://192.168.104.27:3001/api'
 // const API_URL = 'https://nftbb-minter-backend.herokuapp.com/api'
 // todo: change this to dev server
-const API_URL = 'https://apiv2.nftbookbazaar.com/api'
+//const API_URL = 'https://apiv2.nftbookbazaar.com/api'
+const API_URL = 'https://3001-pagedao-mintermintingda-6i22x2yqc7v.ws-us85.gitpod.io/'
 
 let TOKEN_ID = 0
 let CHAIN_ID = 0
