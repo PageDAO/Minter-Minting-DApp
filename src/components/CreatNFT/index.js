@@ -3895,9 +3895,36 @@ const genreData = [
     { "id":"Travel / Rail Travel", "title":"Travel / Rail Travel"},]
 
 const languageData = [
-    { "id": 'EN', "title": "EN" },
-    { "id": 'RU', "title": "RU" },
-    { "id": 'ES', "title": "ES" },
+    { "id": 'ENGLISH', "title": "English" },
+    { "id": 'MANDARIN', "title": "Mandarin" },
+    { "id": 'SPANISH', "title": "Spanish" },
+    { "id": 'HINDI/URDU', "title": "Hindi/Urdu" },
+    { "id": 'ARABIC', "title": "Arabic" },
+    { "id": 'RUSSIAN', "title": "Russian" },
+    { "id": 'MALAY', "title": "Malay" },
+    { "id": 'PORTUGUESE', "title": "Portuguese" },
+    { "id": 'BENGALI', "title": "Bengali" },
+    { "id": 'JAPANESE', "title": "Japanese" },
+    { "id": 'GERMAN', "title": "German" },
+    { "id": 'PUNJABI', "title": "Punjabi" },
+    { "id": 'JAVANESE', "title": "Javanese" },
+    { "id": 'KOREAN', "title": "Korean" },
+    { "id": 'TELEGU', "title": "Telegu" },
+    { "id": 'MARATHI', "title": "Marathi" },
+    { "id": 'TAMIL', "title": "Tamil" },
+    { "id": 'FRENCH', "title": "French" },
+    { "id": 'ITALIAN', "title": "Italian" },
+    { "id": 'TURKISH', "title": "Turkish" },
+    { "id": 'PERSIAN', "title": "Persian" },
+    { "id": 'GUJURATI', "title": "Gujurati" },
+    { "id": 'POLISH', "title": "Polish" },
+    { "id": 'UKRAINIAN', "title": "Ukrainian" },
+    { "id": 'MALAYALAM', "title": "Malayalam" },
+    { "id": 'KANNADA', "title": "Kannada" },
+    { "id": 'ORIYA', "title": "Oriya" },
+    { "id": 'BURMESE', "title": "Burmese" },
+    { "id": 'THAI', "title": "Thai" },
+    
 ]
 
 const fields = { text: 'title', value: 'id' }
@@ -3914,7 +3941,6 @@ const CreateNFT = (props) => {
         setDescription,
         imageName,
         setImageName,
-        setArtist,
         setGenre,
         setLanguage,
         setQty,
@@ -4012,19 +4038,8 @@ const CreateNFT = (props) => {
                             <span className="body_1 ml_10">{imageName}</span>
                         </div>
                     </div>
-                    <div className={styles.row}>
-                        <div className="caption grey60"> Artist(s) </div>
-                        <input
-                            type="text"
-                            onChange={(e) => setArtist(e.target.value)}
-                            id="artist"
-                            name="artist"
-                            required
-                            autoComplete="off"
-                        />
-                    </div>
                 </div>
-                <div className="h6 mt_25">Meta data</div>
+                <div className="h6 mt_25">Metadata</div>
                 <div className={styles.row}>
                     <div className="caption grey60"> Genre </div>
                     <MultiSelectComponent
@@ -4046,7 +4061,7 @@ const CreateNFT = (props) => {
                             change={e => setLanguage(e.value)} />
                     </div>
                     <div className={styles.row}>
-                        <div className="caption grey60"> Quantity (max. 1000) </div>
+                        <div className="caption grey60"> Quantity (max. 10000) </div>
                         <input
                             type="number"
                             onChange={(e) => setQty(e.target.value)}
