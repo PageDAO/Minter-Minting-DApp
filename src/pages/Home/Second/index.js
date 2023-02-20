@@ -122,13 +122,13 @@ const Second = (props) => {
             console.log("gasPrice:", curGasPrice)
 
             
-            const estimatedGas = await comunityContract2.methods.createToken( qty, qty, 100000000, true, true, false, qty, true, `${metadataURL}`).estimateGas({
+            const estimatedGas = await comunityContract2.methods.createToken( qty, qty, 100000000, true, true, false, qty, true, `${metadataURL}`, mintamount).estimateGas({
                 from: accountAddress,
             })
             console.log("estimated gas:", estimatedGas)
             await wait(1000)
             
-            comunityContract2.methods.createToken( qty, qty, web3given.utils.toWei(fee, 'ether'), true, true, false, qty, true, `${metadataURL}`).send({
+            comunityContract2.methods.createToken( qty, qty, web3given.utils.toWei(fee, 'ether'), true, true, false, qty, true, `${metadataURL}`, mintamount).send({
                 from: accountAddress,
                 gasPrice: curGasPrice,
                 gas: estimatedGas * 5
@@ -141,13 +141,6 @@ const Second = (props) => {
                 //const tokenId = await receipt.events.Minted.returnValues[0]
                 console.log("waiting for some time");
                 
-                //todo: mint specified number of premint tokens to creator
-                const estimatedGasMint = uniftyContract2.methods.mintToAdmin(accountAddress, tokenid, mintamount).estimateGas({
-                    from: accountAddress,
-                })
-                console.log(estimatedGasMint);
-
-
                 //todo: automatically list on marketplace
                 /*assetContract
                 assetContract (address)
@@ -159,19 +152,30 @@ const Second = (props) => {
                 reservePricePerToken (uint256)
                 buyoutPricePerToken (uint256)
                 listingType
-                
+                */                
                 const timestamp = (await web3given.eth.getBlock(transactionHash.blockNumber)).timestamp;
 
                 if (listToMarketChecked) {
                     console.log('list to market checked');
+                    const curGasPrice2 = await web3given.eth.getGasPrice()
+                    console.log("gasPrice:", curGasPrice2)
 
-                    const estimatedGasList = marketplaceContract2.methods.createListing([UniftyContractAddr, tokenid, timestamp, 2630000, mintamount, "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", 0, 0, 0 ]).estimateGas({
+                    const estimatedGasList = await marketplaceContract2.methods.createListing([UniftyContractAddr, tokenid, timestamp, 2630000, mintamount, "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", 0, 0, 0 ]).estimateGas({
                         from: accountAddress,
                     })
 
                     console.log(estimatedGasList);
+
+                    marketplaceContract2.methods.createListing([UniftyContractAddr, tokenid, timestamp, 2630000, mintamount, "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", 0, 0, 0 ]).send({
+                        from: accountAddress,
+                        gasPrice: curGasPrice2,
+                        gas: estimatedGasList * 5
+                    }).on('confirmation', async function (confirmationNumber, receipt) {
+                        const transactionHash = await receipt.transactionHash
+                        console.log('listed - tx:', transactionHash)
+                    });
                 }
-                */
+
 
                 await setOpenSeaUrl(`${OPENSEA_URL}/${UniftyContractAddr}/${tokenid}`);
                 setMinting(false);
