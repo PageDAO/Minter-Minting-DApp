@@ -3,7 +3,7 @@ const NET = 'goerli' // polygon, rinkeby, mumbai, goerli
 // const API_URL = 'http://192.168.104.27:3001/api'
 // const API_URL = 'https://nftbb-minter-backend.herokuapp.com/api'
 // todo: change this to dev server
-const API_URL = 'https://apiv2.nftbookbazaar.com/api'
+const API_URL = 'http://localhost:3001/api'
 
 let TOKEN_ID = 0
 let CHAIN_ID = 0
@@ -39,7 +39,7 @@ switch (NET) {
   case 'goerli':
     CHAIN_ID = 5
     CHAIN_ID_HEX = '0x5'
-    ETHERSCAN_URL = 'https://goerli.etherscan.io/'
+    ETHERSCAN_URL = 'https://goerli.etherscan.io/tx'
     OPENSEA_URL = 'https://testnets.opensea.io/assets/goerli'
     TOKEN_ID = ''
     break;

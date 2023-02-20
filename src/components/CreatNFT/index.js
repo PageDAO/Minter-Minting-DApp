@@ -3937,6 +3937,7 @@ const CreateNFT = (props) => {
         setPdfUrl,
         setPdfName,
         setTitle,
+        setPageLimit,
         setAuthor,
         setDescription,
         imageName,
@@ -3944,6 +3945,10 @@ const CreateNFT = (props) => {
         setGenre,
         setLanguage,
         setQty,
+        setFee,
+        setMintAmount,
+        listToMarketChecked,
+        setListToMarket,
         onPdfChange,
         onImageChange,
         create
@@ -4038,7 +4043,19 @@ const CreateNFT = (props) => {
                             <span className="body_1 ml_10">{imageName}</span>
                         </div>
                     </div>
+                    <div className={styles.row}>
+                        <div className="caption grey60"> Page Limit </div>
+                        <input
+                            type="text"
+                            onChange={(e) => setPageLimit(e.target.value)}
+                            id="title"
+                            name="title"
+                            required
+                            autoComplete="off"
+                        />
+                    </div>
                 </div>
+
                 <div className="h6 mt_25">Metadata</div>
                 <div className={styles.row}>
                     <div className="caption grey60"> Genre </div>
@@ -4061,7 +4078,7 @@ const CreateNFT = (props) => {
                             change={e => setLanguage(e.value)} />
                     </div>
                     <div className={styles.row}>
-                        <div className="caption grey60"> Quantity (max. 10000) </div>
+                        <div className="caption grey60"> Max Quantity (max. 10000) </div>
                         <input
                             type="number"
                             onChange={(e) => setQty(e.target.value)}
@@ -4071,6 +4088,43 @@ const CreateNFT = (props) => {
                             autoComplete="off"
                         />
                     </div>
+                </div>
+                <div className="h6 mt_25">Token Issuance</div>
+                <div className={styles.row_group}>
+                    <div className={styles.row}>
+                        <div className="caption grey60"> Number of tokens to premint to creator </div>
+                        <input
+                            type="number"
+                            onChange={(e) => setMintAmount(e.target.value)}
+                            id="qty"
+                            name="qty"
+                            required
+                            autoComplete="off"
+                            placeholder="1"
+                            min="1"
+                        />
+                    </div>
+                    <div className={styles.row}>
+                        <div className="caption grey60"> Cost to Mint (Eth)</div>
+                        <input
+                                type="number"
+                                onChange={(e) => setFee(e.target.value)}
+                                id="qty"
+                                name="qty"
+                                required
+                                autoComplete="off"
+                                placeholder="0.01"
+                                step="0.005"
+                            />
+                    </div>
+                </div>
+                <div className={styles.row}>
+                    <div className="caption grey60"> Marketplace options </div>
+                    <input className="checkbox"
+                        type="checkbox" 
+                        checked={listToMarketChecked} 
+                        onChange={(e) => setListToMarket(e.target.value)}
+                    /><span className="caption">List premint supply directly on Marketplace for mint price</span>
                 </div>
                 <Button value="Create" redBg onClick={create} disabled={minting}
                     style={{ width: '100%', height: 56, marginTop: 25 }} />

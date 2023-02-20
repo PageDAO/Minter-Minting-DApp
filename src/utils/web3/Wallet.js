@@ -7,12 +7,14 @@ import {
   ComunityContractAddr,
   MembershipContractAddr,
   Membership721ContractAddr,
+  MarketplaceContractAddr,
   UniftyContractAddr
 } from "../../constant/contractAddr"
 import MainABI from '../../constant/abi/MainABI.json'
 import MembershipABI from '../../constant/abi/MembershipABI.json'
 import Membership721ABI from '../../constant/abi/Membership721ABI.json'
 import ReadmeABI from '../../constant/abi/ReadmeABI.json'
+import MarketplaceABI from '../../constant/abi/MarketplaceABI.json'
 
 export let accountAddress = undefined
 export let web3Modal = undefined
@@ -29,6 +31,7 @@ export const web3given = new Web3(Web3.givenProvider)
 export let comunityContract2 = new web3given.eth.Contract(MainABI, ComunityContractAddr)
 export let membershipContract2 = new web3given.eth.Contract(MembershipABI, MembershipContractAddr)
 export let uniftyContract2 = new web3given.eth.Contract(ReadmeABI, UniftyContractAddr)
+export let marketplaceContract2 = new web3given.eth.Contract(MarketplaceABI, MarketplaceContractAddr)
 
 async function updateAccount() {
   const accounts = await web3Modal.eth.getAccounts()

@@ -4,13 +4,14 @@ import wait from 'wait'
 import styles from './Second.module.scss'
 import api from '../../../api'
 import { useAppSelector } from '../../../redux/hook'
-import { chainId, accountAddress, comunityContract2, web3given } from "../../../utils/web3/Wallet"
+import { chainId, accountAddress, web3given, uniftyContract2, comunityContract2, marketplaceContract2 } from "../../../utils/web3/Wallet"
 import { CHAIN_ID, OPENSEA_URL, ETHERSCAN_URL } from "../../../constant/env"
 //import { useResize } from "../../../utils/Helper"
 import Button from "../../../components/Button"
 import CreateNFT from "../../../components/CreatNFT"
 import PdfModal from "../../../components/PdfModal"
 import Progress from "../../../components/Progress"
+import { MarketplaceContractAddr, UniftyContractAddr } from "../../../constant/contractAddr"
 
 const Second = (props) => {
 
@@ -27,6 +28,7 @@ const Second = (props) => {
     const [pdfName, setPdfName] = useState('No file chosen')
     const [pdfUrl, setPdfUrl] = useState('')
     const [title, setTitle] = useState('')
+    const [pageLimit, setPageLimit] = useState('')
     const [author, setAuthor] = useState('')
     const [description, setDescription] = useState('')
     const [image, setImage] = useState('')
@@ -35,6 +37,9 @@ const Second = (props) => {
     const [genre, setGenre] = useState('')
     const [language, setLanguage] = useState('')
     const [qty, setQty] = useState(0)
+    const [fee, setFee] = useState(0)
+    const [mintamount, setMintAmount] = useState(0)
+    const [listToMarketChecked, setListToMarket] = React.useState(true)
 
     const checkNet = async () => {
         if (!window.web3) {
@@ -78,49 +83,100 @@ const Second = (props) => {
             alert('Please input description')
         } else if (imageName === 'No file chosen') {
             alert('Please input banner image')
-        } else if (artist === '') {
-            alert('Please input artist')
         } else if (genre === '') {
             alert('Please select genre')
+        } else if (mintamount === 0) {
+            alert('Mininum of 1 token required')
         } else if (language === '') {
             alert('Please select language')
         } else if (qty === 0) {
             alert('Please input quantity')
-        } else if (qty > 1000) {
-            alert('Max number exceeds')
+        } else if (qty > 10000) {
+            alert('Max number exceeds 10000')
         }
         else if (checkNet()) {
             setMinting(true)
             setActiveProgressModal(true)
+            var tokenid = (await uniftyContract2.methods.currentTokenID().call()*1)+1;
+
+            console.log(tokenid, MarketplaceContractAddr);
             const result = await api.nft.create(
                 pdf,
                 title,
+                pageLimit,
                 author.toString().replace(", ", ","),
                 description, image,
                 artist.toString().replace(", ", ","),
                 genre.toString().replace(", ", ","),
                 language,
+                tokenid,
+                MarketplaceContractAddr,
+                "https://localhost:3000/",
                 qty
             )
             const metadataURL = result.data.metadataURL
 
+            console.log("metadata url: ", metadataURL);
+
             const curGasPrice = await web3given.eth.getGasPrice()
             console.log("gasPrice:", curGasPrice)
 
-            const estimatedGas = await comunityContract2.methods.mint(qty, qty, `${metadataURL}`).estimateGas({
+            
+            const estimatedGas = await comunityContract2.methods.createToken( qty, qty, 100000000, true, true, false, qty, true, `${metadataURL}`).estimateGas({
                 from: accountAddress,
             })
             console.log("estimated gas:", estimatedGas)
             await wait(1000)
-            comunityContract2.methods.mint(qty, qty, `${metadataURL}`).send({
+            
+            comunityContract2.methods.createToken( qty, qty, web3given.utils.toWei(fee, 'ether'), true, true, false, qty, true, `${metadataURL}`).send({
                 from: accountAddress,
                 gasPrice: curGasPrice,
                 gas: estimatedGas * 5
             }).on('confirmation', async function (confirmationNumber, receipt) {
                 const transactionHash = await receipt.transactionHash
                 await setEtherscanUrl(`${ETHERSCAN_URL}/${transactionHash}`)
-                const tokenId = await receipt.events.Minted.returnValues[0]
-                console.log("waiting for some time")
+                //const retValues = await receipt.events.TransferSingle.returnValues;
+                
+                //console.log(retValues);
+                //const tokenId = await receipt.events.Minted.returnValues[0]
+                console.log("waiting for some time");
+                
+                //todo: mint specified number of premint tokens to creator
+                const estimatedGasMint = uniftyContract2.methods.mintToAdmin(accountAddress, tokenid, mintamount).estimateGas({
+                    from: accountAddress,
+                })
+                console.log(estimatedGasMint);
+
+
+                //todo: automatically list on marketplace
+                /*assetContract
+                assetContract (address)
+                tokenId (uint256)
+                startTime (uint256)
+                secondsUntilEndTime (uint256)
+                quantityToList (uint256)
+                currencyToAccept (address)
+                reservePricePerToken (uint256)
+                buyoutPricePerToken (uint256)
+                listingType
+                
+                const timestamp = (await web3given.eth.getBlock(transactionHash.blockNumber)).timestamp;
+
+                if (listToMarketChecked) {
+                    console.log('list to market checked');
+
+                    const estimatedGasList = marketplaceContract2.methods.createListing([UniftyContractAddr, tokenid, timestamp, 2630000, mintamount, "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", 0, 0, 0 ]).estimateGas({
+                        from: accountAddress,
+                    })
+
+                    console.log(estimatedGasList);
+                }
+                */
+
+                await setOpenSeaUrl(`${OPENSEA_URL}/${UniftyContractAddr}/${tokenid}`);
+                setMinting(false);
+                setMinted(true);
+                /*
                 await wait(1000)
                 await comunityContract2.methods.Collection().call({ from: accountAddress })
                     .then(async (res) => {
@@ -130,6 +186,7 @@ const Second = (props) => {
                         setMinting(false)
                         setMinted(true)
                     })
+                */
             }).on('error', function (error, receipt) { // If the transaction was rejected by the network with a receipt, the second parameter will be the receipt.
                 console.log('error in mint:', error)
                 setMinting(false)
@@ -179,6 +236,7 @@ const Second = (props) => {
                 imageName={imageName}
                 setPdfName={setPdfName}
                 setTitle={setTitle}
+                setPageLimit={setPageLimit}
                 setAuthor={changeAuthor}
                 setDescription={setDescription}
                 setImageName={setImageName}
@@ -186,6 +244,10 @@ const Second = (props) => {
                 setGenre={setGenre}
                 setLanguage={setLanguage}
                 setQty={setQty}
+                setFee={setFee}
+                setMintAmount={setMintAmount}
+                listToMarketChecked={listToMarketChecked}
+                setListToMarket={setListToMarket}
                 onPdfChange={onPdfChange}
                 onImageChange={onImageChange}
                 create={create}
