@@ -5,7 +5,7 @@ import styles from './Second.module.scss'
 import api from '../../../api'
 import { useAppSelector } from '../../../redux/hook'
 import { chainId, accountAddress, web3given, uniftyContract2, comunityContract2, marketplaceContract2 } from "../../../utils/web3/Wallet"
-import { CHAIN_ID, OPENSEA_URL, ETHERSCAN_URL } from "../../../constant/env"
+import { CHAIN_ID, OPENSEA_URL, ETHERSCAN_URL, MARKETPLACE_URL } from "../../../constant/env"
 //import { useResize } from "../../../utils/Helper"
 import Button from "../../../components/Button"
 import CreateNFT from "../../../components/CreatNFT"
@@ -37,6 +37,7 @@ const Second = (props) => {
     const [genre, setGenre] = useState('')
     const [language, setLanguage] = useState('')
     const [qty, setQty] = useState(0)
+    const [license, setLicense] = useState('All Rights Reserved')
     const [fee, setFee] = useState(0)
     const [mintamount, setMintAmount] = useState(0)
     const [listToMarketChecked, setListToMarket] = React.useState(true)
@@ -105,13 +106,15 @@ const Second = (props) => {
                 title,
                 pageLimit,
                 author.toString().replace(", ", ","),
-                description, image,
+                description,
+                image,
                 artist.toString().replace(", ", ","),
                 genre.toString().replace(", ", ","),
                 language,
+                license,
                 tokenid,
                 MarketplaceContractAddr,
-                "https://localhost:3000/",
+                MARKETPLACE_URL,
                 qty
             )
             const metadataURL = result.data.metadataURL
@@ -133,64 +136,66 @@ const Second = (props) => {
                 gasPrice: curGasPrice,
                 gas: estimatedGas * 5
             }).on('confirmation', async function (confirmationNumber, receipt) {
-                const transactionHash = await receipt.transactionHash
-                await setEtherscanUrl(`${ETHERSCAN_URL}/${transactionHash}`)
-                //const retValues = await receipt.events.TransferSingle.returnValues;
-                
-                //console.log(retValues);
-                //const tokenId = await receipt.events.Minted.returnValues[0]
-                console.log("waiting for some time");
-                
-                //todo: automatically list on marketplace
-                /*assetContract
-                assetContract (address)
-                tokenId (uint256)
-                startTime (uint256)
-                secondsUntilEndTime (uint256)
-                quantityToList (uint256)
-                currencyToAccept (address)
-                reservePricePerToken (uint256)
-                buyoutPricePerToken (uint256)
-                listingType
-                */                
-                const timestamp = (await web3given.eth.getBlock(transactionHash.blockNumber)).timestamp;
+                if (confirmationNumber===1){
+                    const transactionHash = await receipt.transactionHash
+                    await setEtherscanUrl(`${ETHERSCAN_URL}/${transactionHash}`)
+                    //const retValues = await receipt.events.TransferSingle.returnValues;
+                    
+                    //console.log(retValues);
+                    //const tokenId = await receipt.events.Minted.returnValues[0]
+                    console.log("waiting for some time");
+                    
+                    //todo: automatically list on marketplace
+                    /*assetContract
+                    assetContract (address)
+                    tokenId (uint256)
+                    startTime (uint256)
+                    secondsUntilEndTime (uint256)
+                    quantityToList (uint256)
+                    currencyToAccept (address)
+                    reservePricePerToken (uint256)
+                    buyoutPricePerToken (uint256)
+                    listingType
+                    */                
+                    const timestamp = (await web3given.eth.getBlock(transactionHash.blockNumber)).timestamp;
 
-                if (listToMarketChecked) {
-                    console.log('list to market checked');
-                    const curGasPrice2 = await web3given.eth.getGasPrice()
-                    console.log("gasPrice:", curGasPrice2)
+                    if (listToMarketChecked) {
+                        console.log('list to market checked');
+                        const curGasPrice2 = await web3given.eth.getGasPrice()
+                        console.log("gasPrice:", curGasPrice2)
 
-                    const estimatedGasList = await marketplaceContract2.methods.createListing([UniftyContractAddr, tokenid, timestamp, 2630000, mintamount, "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", 0, 0, 0 ]).estimateGas({
-                        from: accountAddress,
-                    })
+                        const estimatedGasList = await marketplaceContract2.methods.createListing([UniftyContractAddr, tokenid, timestamp, 2630000, mintamount, "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", fee, fee, 0 ]).estimateGas({
+                            from: accountAddress,
+                        })
 
-                    console.log(estimatedGasList);
+                        console.log(estimatedGasList);
 
-                    marketplaceContract2.methods.createListing([UniftyContractAddr, tokenid, timestamp, 2630000, mintamount, "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", 0, 0, 0 ]).send({
-                        from: accountAddress,
-                        gasPrice: curGasPrice2,
-                        gas: estimatedGasList * 5
-                    }).on('confirmation', async function (confirmationNumber, receipt) {
-                        const transactionHash = await receipt.transactionHash
-                        console.log('listed - tx:', transactionHash)
-                    });
+                        marketplaceContract2.methods.createListing([UniftyContractAddr, tokenid, timestamp, 2630000, mintamount, "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", 0, 0, 0 ]).send({
+                            from: accountAddress,
+                            gasPrice: curGasPrice2,
+                            gas: estimatedGasList * 5
+                        }).on('confirmation', async function (confirmationNumber, receipt) {
+                            const transactionHash = await receipt.transactionHash
+                            console.log('listed - tx:', transactionHash)
+                        });
+                    }
+
+
+                    await setOpenSeaUrl(`${OPENSEA_URL}/${UniftyContractAddr}/${tokenid}`);
+                    setMinting(false);
+                    setMinted(true);
+                    /*
+                    await wait(1000)
+                    await comunityContract2.methods.Collection().call({ from: accountAddress })
+                        .then(async (res) => {
+                            const collection = res
+                            await setOpenSeaUrl(`${OPENSEA_URL}/${collection}/${tokenId}`)
+                            await wait(1000)
+                            setMinting(false)
+                            setMinted(true)
+                        })
+                    */
                 }
-
-
-                await setOpenSeaUrl(`${OPENSEA_URL}/${UniftyContractAddr}/${tokenid}`);
-                setMinting(false);
-                setMinted(true);
-                /*
-                await wait(1000)
-                await comunityContract2.methods.Collection().call({ from: accountAddress })
-                    .then(async (res) => {
-                        const collection = res
-                        await setOpenSeaUrl(`${OPENSEA_URL}/${collection}/${tokenId}`)
-                        await wait(1000)
-                        setMinting(false)
-                        setMinted(true)
-                    })
-                */
             }).on('error', function (error, receipt) { // If the transaction was rejected by the network with a receipt, the second parameter will be the receipt.
                 console.log('error in mint:', error)
                 setMinting(false)
@@ -247,6 +252,7 @@ const Second = (props) => {
                 setArtist={setArtist}
                 setGenre={setGenre}
                 setLanguage={setLanguage}
+                setLicense={setLicense}
                 setQty={setQty}
                 setFee={setFee}
                 setMintAmount={setMintAmount}

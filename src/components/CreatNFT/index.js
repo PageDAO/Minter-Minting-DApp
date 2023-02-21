@@ -3945,6 +3945,7 @@ const CreateNFT = (props) => {
         setGenre,
         setLanguage,
         setQty,
+        setLicense,
         setFee,
         setMintAmount,
         listToMarketChecked,
@@ -4089,6 +4090,16 @@ const CreateNFT = (props) => {
                         />
                     </div>
                 </div>
+                <div className={styles.row}>
+                        <div className="caption grey60"> Licensing Info </div>
+                        <input
+                            type="text"
+                            onChange={(e) => setLicense(e.target.value)}
+                            id="license"
+                            name="license"
+                            autoComplete="off"
+                        />
+                    </div>
                 <div className="h6 mt_25">Token Issuance</div>
                 <div className={styles.row_group}>
                     <div className={styles.row}>
@@ -4102,6 +4113,7 @@ const CreateNFT = (props) => {
                             autoComplete="off"
                             placeholder="1"
                             min="1"
+                            defaultValue="1"
                         />
                     </div>
                     <div className={styles.row}>
@@ -4115,6 +4127,7 @@ const CreateNFT = (props) => {
                                 autoComplete="off"
                                 placeholder="0.01"
                                 step="0.005"
+                                defaultValue="0.01"
                             />
                     </div>
                 </div>

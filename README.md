@@ -1,4 +1,4 @@
-# NFT University Press NFTBook Minter
+# PageDAO 2nd Gen NFTBook Minter
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

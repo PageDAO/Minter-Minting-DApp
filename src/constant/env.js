@@ -4,6 +4,7 @@ const NET = 'goerli' // polygon, rinkeby, mumbai, goerli
 // const API_URL = 'https://nftbb-minter-backend.herokuapp.com/api'
 // todo: change this to dev server
 const API_URL = 'https://minterbackend.onrender.com/api'
+const MARKETPLACE_URL = 'https://main--gleeful-sunburst-65c589.netlify.app/'
 
 let TOKEN_ID = 0
 let CHAIN_ID = 0
@@ -53,6 +54,7 @@ export {
   NET,
   TOKEN_ID,
   API_URL,
+  MARKETPLACE_URL,
   CHAIN_ID,
   CHAIN_ID_HEX,
   OPENSEA_URL,
