@@ -124,14 +124,15 @@ const Second = (props) => {
             const curGasPrice = await web3given.eth.getGasPrice()
             console.log("gasPrice:", curGasPrice)
 
-            
-            const estimatedGas = await comunityContract2.methods.createToken( qty, qty, 100000000, true, true, false, qty, true, `${metadataURL}`, mintamount).estimateGas({
+            const feeinwei = web3given.utils.toWei(web3given.utils.toBN(fee), 'ether');
+
+            const estimatedGas = await comunityContract2.methods.createToken( qty, qty, feeinwei, true, true, false, qty, true, `${metadataURL}`, mintamount).estimateGas({
                 from: accountAddress,
             })
             console.log("estimated gas:", estimatedGas)
             await wait(1000)
             
-            comunityContract2.methods.createToken( qty, qty, web3given.utils.toWei(fee, 'ether'), true, true, false, qty, true, `${metadataURL}`, mintamount).send({
+            comunityContract2.methods.createToken( qty, qty, feeinwei, true, true, false, qty, true, `${metadataURL}`, mintamount).send({
                 from: accountAddress,
                 gasPrice: curGasPrice,
                 gas: estimatedGas * 5
@@ -170,7 +171,7 @@ const Second = (props) => {
 
                         console.log(estimatedGasList);
 
-                        marketplaceContract2.methods.createListing([UniftyContractAddr, tokenid, timestamp, 2630000, mintamount, "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", 0, 0, 0 ]).send({
+                        marketplaceContract2.methods.createListing([UniftyContractAddr, tokenid, timestamp, 2630000, mintamount, "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", fee, fee, 0 ]).send({
                             from: accountAddress,
                             gasPrice: curGasPrice2,
                             gas: estimatedGasList * 5
