@@ -4,7 +4,7 @@ const NET = 'goerli' // polygon, rinkeby, mumbai, goerli
 // const API_URL = 'https://nftbb-minter-backend.herokuapp.com/api'
 // todo: change this to dev server
 const API_URL = 'https://sptest2.onrender.com'
-const MARKETPLACE_URL = 'https://thirdweb.com/goerli/0x159BCB789c77007dd047d2b0E8Beb4e3f225395f'
+const MARKETPLACE_URL = 'https://thirdweb.com/goerli/0x636324e1FE59E1e71ad766B5e06b06FF2A0606Af'
 
 let TOKEN_ID = 0
 let CHAIN_ID = 0
