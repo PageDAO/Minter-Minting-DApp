@@ -35,10 +35,10 @@ switch (NET) {
 //todo: deploy community mint control to goerli - now test
     case 'goerli':
         ComunityContractAddr = '0xCc21Bc96c4aDaC5DE21b758F796F871EE8643b47'
-        UniftyContractAddr = '0x7f2350768d21ba4E2449beEe05535b1fE7D0B700'
+        UniftyContractAddr = '0xE14c48DC975F50bF7ca43015c39C2779C33E5C62'
         MembershipContractAddr = ''
-        Membership721ContractAddr = '0x836f84E121643b90c6aFf9f4D84561b0Ac69423c'
-        MarketplaceContractAddr = '0xCFA7cA9fD5d32A6E9104aC849b1094Ea8c71e294'
+        Membership721ContractAddr = '0x75fFAF8711Cf9E0B36eaCdEf407f396F7628e976'
+        MarketplaceContractAddr = '0x636324e1FE59E1e71ad766B5e06b06FF2A0606Af'
         break;
 
     default:
