@@ -3,7 +3,7 @@ import axios from 'axios'
 import { API_URL, ALCHEMY_PRC_URL } from '../constant/env'
 
 const nft = {
-    create: (pdf, title, pageLimit, author, description, image, artist, genere, language, license, tokenid, marketplaceAddr, marketplaceURL, qty) => axios.post(`${API_URL}/nft/create`, {
+    create: (pdf, title, pageLimit, author, description, image, artist, genere, language, license, tokenid, contractAddr, chainID, marketplaceAddr, marketplaceURL, qty) => axios.post(`${API_URL}/nft/create`, {
         pdf,
         title,
         pageLimit,
@@ -15,6 +15,8 @@ const nft = {
         language,
         license,
         tokenid,
+        contractAddr,
+        chainID,
         marketplaceAddr,
         marketplaceURL,
         qty

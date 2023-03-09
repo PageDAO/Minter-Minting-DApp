@@ -87,7 +87,7 @@ const Second = (props) => {
         } else if (genre === '') {
             alert('Please select genre')
         } else if (mintamount === 0) {
-            alert('Mininum of 1 token required')
+            setMintAmount(1)
         } else if (language === '') {
             alert('Please select language')
         } else if (qty === 0) {
@@ -113,6 +113,8 @@ const Second = (props) => {
                 language,
                 license,
                 tokenid,
+                UniftyContractAddr, 
+                CHAIN_ID,
                 MarketplaceContractAddr,
                 MARKETPLACE_URL,
                 qty
@@ -171,7 +173,7 @@ const Second = (props) => {
 
                         console.log(estimatedGasList);
 
-                        marketplaceContract2.methods.createListing([UniftyContractAddr, tokenid, timestamp, 2630000, mintamount, "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", fee, fee, 0 ]).send({
+                        await marketplaceContract2.methods.createListing([UniftyContractAddr, tokenid, timestamp, 2630000, mintamount, "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", fee, fee, 0 ]).send({
                             from: accountAddress,
                             gasPrice: curGasPrice2,
                             gas: estimatedGasList * 5

@@ -4045,7 +4045,7 @@ const CreateNFT = (props) => {
                         </div>
                     </div>
                     <div className={styles.row}>
-                        <div className="caption grey60"> Page Limit </div>
+                        <div className="caption grey60"> Preview Page Limit </div>
                         <input
                             type="text"
                             onChange={(e) => setPageLimit(e.target.value)}
