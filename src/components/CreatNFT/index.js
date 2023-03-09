@@ -3924,6 +3924,7 @@ const languageData = [
     { "id": 'ORIYA', "title": "Oriya" },
     { "id": 'BURMESE', "title": "Burmese" },
     { "id": 'THAI', "title": "Thai" },
+    { "id": 'LATIN', "title": "Latin" },
     
 ]
 
