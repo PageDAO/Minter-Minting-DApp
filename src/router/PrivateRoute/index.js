@@ -5,7 +5,7 @@ import Web3 from 'web3'
 import styles from './PrivateRoute.module.scss'
 import { useAppDispatch } from '../../redux/hook'
 import { setMembership } from "../../redux/membershipSlice"
-import { CHAIN_ID, CHAIN_ID_HEX, ETHERSCAN_URL } from "../../constant/env"
+import { CHAIN_ID, CHAIN_ID_HEX } from "../../constant/env"
 
 import Header from "../../components/Header"
 import Footer from "../../components/Footer"
@@ -14,9 +14,7 @@ import {
     accountAddress,
     chainId,
     closeWalletProvider,
-    comunityContract2,
-    membershipContract,
-    membershipContract721
+    comunityContract2
 } from "../../utils/web3/Wallet"
 
 const PrivateRoute = ({ component: Component, ...restOfProps }) => {
