@@ -14,6 +14,7 @@ import {
     accountAddress,
     chainId,
     closeWalletProvider,
+    comunityContract2,
     membershipContract,
     membershipContract721
 } from "../../utils/web3/Wallet"
@@ -57,7 +58,12 @@ const PrivateRoute = ({ component: Component, ...restOfProps }) => {
         if (chainId === CHAIN_ID) {
             try {
                 // this was hardcoded to tokenid 0, should be the tokenid for this token - todo: put this in config "utils/web3/wallet"
-                console.log(CHAIN_ID);
+                console.log("Chain ID: ", CHAIN_ID);
+                comunityContract2?.methods.canMint(accountAddress).call().then(res => {
+                    let hasMembership = (res > 0) ? true : false
+                    dispatch(setMembership(hasMembership))
+                })
+                /*
                 console.log(ETHERSCAN_URL);
                 console.log(membershipContract._address);
                 if (membershipContract._address)
@@ -70,6 +76,7 @@ const PrivateRoute = ({ component: Component, ...restOfProps }) => {
                     let hasMembership = (res > 0) ? true : false
                     dispatch(setMembership(hasMembership))
                 })
+                */
             } catch (error) {
                 console.log('error', error)
             }
