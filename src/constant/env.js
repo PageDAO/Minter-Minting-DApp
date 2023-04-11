@@ -44,6 +44,22 @@ switch (NET) {
     OPENSEA_URL = 'https://testnets.opensea.io/assets/goerli'
     TOKEN_ID = ''
     break;
+        
+  case 'optimism':
+    CHAIN_ID = 10
+    CHAIN_ID_HEX = '0xA'
+    ETHERSCAN_URL = 'https://optimism.etherscan.io/'
+    OPENSEA_URL = 'https://optimism.opensea.io/assets'
+    TOKEN_ID = 0
+    break;
+    
+  case 'arbitrum-one':
+    CHAIN_ID = 42161
+    CHAIN_ID_HEX = '0xA4B1'
+    ETHERSCAN_URL = 'https://arbiscan.io/'
+    OPENSEA_URL = 'https://opensea.io/assets/arbitrum'
+    TOKEN_ID = '0'
+    break;
 
   default:
     break;
