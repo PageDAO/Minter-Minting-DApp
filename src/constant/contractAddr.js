@@ -31,6 +31,22 @@ switch (NET) {
         Membership721ContractAddr = '0xd9ff4b61817ff3246d012ff8918e3e8b8dfa5a39'
         MarketplaceContractAddr = ''
         break;
+        
+    case 'optimism':
+        ComunityContractAddr = '0x75fFAF8711Cf9E0B36eaCdEf407f396F7628e976'
+        UniftyContractAddr = '0xE7F967Ed990C4db5262b592A3e5B70e29Dd585c3'
+        MembershipContractAddr = ''
+        Membership721ContractAddr = '0x94A56cBd3bb49664f333c3B559F2bD8cb9Ae55a0'
+        MarketplaceContractAddr = '0xd24b3de085CFd8c54b94feAD08a7962D343E6DE0'
+        break;
+    
+    case 'arbitrum-one':
+        ComunityContractAddr = '0xdf67df1C4cE31e98Fb39a47fb54c8bb6cFd2F677'
+        UniftyContractAddr = '0xB20dE3908b070b55B7E844579A1A198f59b414E4'
+        MembershipContractAddr = '0x07879B67b0a2035F619ceab0dF7C78bB74924C16'
+        Membership721ContractAddr = '0x07879B67b0a2035F619ceab0dF7C78bB74924C16'
+        MarketplaceContractAddr = '0x151Edef9D633251476523581447defed4C456cC1'
+        break;
 
 //todo: deploy community mint control to goerli - now test
     case 'goerli':
