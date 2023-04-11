@@ -5,7 +5,7 @@ import styles from './Second.module.scss'
 import api from '../../../api'
 import { useAppSelector } from '../../../redux/hook'
 import { chainId, accountAddress, web3given, uniftyContract2, comunityContract2, marketplaceContract2 } from "../../../utils/web3/Wallet"
-import { CHAIN_ID, OPENSEA_URL, ETHERSCAN_URL, MARKETPLACE_URL } from "../../../constant/env"
+import { CHAIN_ID, OPENSEA_URL, ETHERSCAN_URL, MARKETPLACE_URL, NET} from "../../../constant/env"
 //import { useResize } from "../../../utils/Helper"
 import Button from "../../../components/Button"
 import CreateNFT from "../../../components/CreatNFT"
@@ -229,7 +229,7 @@ const Second = (props) => {
                     </div>
                     <img src='/assets/no_member.png' className="mt_15 mb_25" alt="img" />
                     <div className={styles.footer}>
-                        <div className="body_2">Network: Polygon</div>
+                        <div className="body_2">Network: {NET}</div>
                         <div className={styles.divider}></div>
                         <a href="https://membership.nftbookbazaar.com"
                             className="d_flex align_items_center" target="_blank" rel="noreferrer">

@@ -1,5 +1,5 @@
 const ALCHEMY_PRC_URL = "https://polygon-mainnet.g.alchemy.com/v2/f5LpbJ2eyEurydCMDameDYSJmLa8pPyS"
-const NET = 'goerli' // polygon, rinkeby, mumbai, goerli
+const NET = 'arbitrum-one' // polygon, rinkeby, mumbai, goerli
 // const API_URL = 'http://192.168.104.27:3001/api'
 // const API_URL = 'https://nftbb-minter-backend.herokuapp.com/api'
 // todo: change this to dev server
